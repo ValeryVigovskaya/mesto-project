@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Project Mesto</title>
+  </head>
+  <body class="page">
+    <section class="popup">
+         <img class="popup__toggle-image" src="./images/Close-Icon.png" />
+      <form class="popup__container">
+        <h2 class="popup__heading">Редактировать профиль</h2>
+        <fieldset class="popup__input">
+          <input
+            type="text"
+            class="popup__name"
+            name="name"
+            placeholder="Жак-Ив Кусто"
+          />
+          <input
+            class="popup__description"
+            name="description"
+            placeholder="Исследователь океана"
+          />
+        </fieldset>
+        <fieldset class="popup__handler">
+            <input type="submit" value="Сохранить" class="popup__button" />
+        </fieldset>
+      </form>
+    </section>
+    <header class="header">
+      <img src="./images/logo.svg" alt="логотип" class="header__logo" />
+    </header>
+    <main>
+      <section class="profile">
+        <img src="./images/avatar.jpg" alt="аватар" class="profile__avatar" />
+        <div class="profile__info">
+          <h1 class="profile__username">Жак-Ив Кусто</h1>
+          <img src="./images/edit.png" class="profile__edit-button" />
+          <p class="profile__description">Исследователь океана</p>
+        </div>
+        <img type="image" src="./images/add.png" class="profile__add-button" />
+      </section>
+      <section class="elements">
+        <ul class="elements__list">
+          <li class="element">
+            <figure class="element__group">
+              <img
+                src="./images/karachaevsk.png"
+                alt="Карачаевск"
+                class="element__image"
+              />
+              <figcaption class="element__caption">Карачаевск</figcaption>
+            </figure>
+            <img
+              src="./images/heart.svg"
+              alt="сердечко"
+              class="element__like"
+            />
+          </li>
+          <li class="element">
+            <figure class="element__group">
+              <img
+                src="./images/elbrus.png"
+                alt="эльбрус"
+                class="element__image"
+              />
+              <figcaption class="element__caption">Гора Эльбрус</figcaption>
+            </figure>
+            <img
+              src="./images/heart.svg"
+              alt="сердечко"
+              class="element__like"
+            />
+          </li>
+          <li class="element">
+            <figure class="element__group">
+              <img
+                src="./images/kirill-pershin-1556355-unsplash.png"
+                alt="Домбай"
+                class="element__image"
+              />
+              <figcaption class="element__caption">Домбай</figcaption>
+            </figure>
+            <img
+              src="./images/heart.svg"
+              alt="сердечко"
+              class="element__like"
+            />
+          </li>
+          <li class="element">
+            <figure class="element__group">
+              <img
+                src="./images/elbrus.png"
+                alt="эльбрус"
+                class="element__image"
+              />
+              <figcaption class="element__caption">Гора Эльбрус</figcaption>
+            </figure>
+            <img
+              src="./images/heart.svg"
+              alt="сердечко"
+              class="element__like"
+            />
+          </li>
+          <li class="element">
+            <figure class="element__group">
+              <img
+                src="./images/kirill-pershin-1556355-unsplash.png"
+                alt="Домбай"
+                class="element__image"
+              />
+              <figcaption class="element__caption">Домбай</figcaption>
+            </figure>
+            <img
+              src="./images/heart.svg"
+              alt="сердечко"
+              class="element__like"
+            />
+          </li>
+          <li class="element">
+            <figure class="element__group">
+              <img
+                src="./images/karachaevsk.png"
+                alt="Карачаево-Черкесия"
+                class="element__image"
+              />
+              <figcaption class="element__caption">
+                Карачаево-Черкесия
+              </figcaption>
+            </figure>
+            <img
+              src="./images/heart.svg"
+              alt="сердечко"
+              class="element__like"
+            />
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy;2020 Mesto Russia</p>
+    </footer>
+  </body>
+</html>

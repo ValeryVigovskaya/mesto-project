@@ -1,0 +1,18 @@
+.profile__add-button {
+    max-width: 100%;
+    object-fit: cover;
+    padding: 14px 64px;
+    justify-self: end;
+    border: 2px solid #fff;
+}
+
+.profile__add-button:hover {
+    transition: 0.35s;
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 320px) {
+    .profile__add-button {
+        padding: 17px 134px;   
+}
+}
