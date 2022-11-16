@@ -13,6 +13,11 @@
   padding: 0;
 }
 
+.popup__button:hover {
+  transition: 0.35s;
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 320px) {
   .popup__button {
     min-height: 46px;
