@@ -1,18 +1,18 @@
 .element__group {
-    max-width: 282px;
-    margin:0;
-    background-color: #FFF;
-    border-radius: 10px 10px 10px 10px;
+  max-width: 282px;
+  margin: 0;
+  background-color: #fff;
+  border-radius: 10px 10px 10px 10px;
 }
 
 @media screen and (max-width: 1279px) {
-    .element__group {
-        border-radius: 5px 5px 5px 5px;
-    }
-}   
+  .element__group {
+    border-radius: 5px 5px 5px 5px;
+  }
+}
 
 @media screen and (max-width: 320px) {
-    .element__group {
-        border-radius: 10px 10px 10px 10px;
-    }
-}  
+  .element__group {
+    border-radius: 10px 10px 10px 10px;
+  }
+}

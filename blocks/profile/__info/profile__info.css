@@ -1,33 +1,31 @@
 .profile__info {
-    max-width: 50%;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 30px;
-    padding-right: 244px;
+  max-width: 50%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 30px;
+  padding-right: 244px;
 }
 
 @media screen and (max-width: 1274px) {
-    .profile__info {
-        padding-right: 0;
-        }
-    
+  .profile__info {
+    padding-right: 0;
+  }
 }
 
 @media screen and (max-width: 1274px) {
-    .profile__info {
-        max-width: 100%;
-    }
+  .profile__info {
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 320px) {
-    .profile__info {
-        padding-top: 26px;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 36px;
-        justify-content: center;
-        margin: 0 auto;
-        }
-    
+  .profile__info {
+    padding-top: 26px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 36px;
+    justify-content: center;
+    margin: 0 auto;
+  }
 }

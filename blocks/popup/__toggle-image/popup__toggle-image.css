@@ -1,23 +1,22 @@
 .popup__toggle-image {
-    max-width: 32px;
-    height: 32px;
-    position: relative;
-    left: 863px;
-    top: 190px;
+  max-width: 32px;
+  height: 32px;
+  position: relative;
+  left: 863px;
+  top: 190px;
 }
 
 .popup__toggle-image:hover {
-    opacity: 0.6;
-    transition: 0.35s;
-    cursor: pointer;
+  opacity: 0.6;
+  transition: 0.35s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
-    .popup__toggle-image {
-        max-width: 20px;
-        height: 20px;
-        left: 281px;
-        top: 87px;
-    }
-    
+  .popup__toggle-image {
+    max-width: 20px;
+    height: 20px;
+    left: 281px;
+    top: 87px;
+  }
 }

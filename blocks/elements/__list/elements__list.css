@@ -1,16 +1,16 @@
 .elements__list {
-    max-width: 100%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px 17px;
+  max-width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px 17px;
 }
 
 @media screen and (max-width: 320px) {
-    .elements {
-        gap: 10px 10px;
-    }
+  .elements {
+    gap: 10px 10px;
+  }
 }

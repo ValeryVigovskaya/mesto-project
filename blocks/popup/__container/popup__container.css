@@ -1,23 +1,22 @@
 .popup__container {
-    width: 430px;
-    height: 330px;
-    z-index:2;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    position: relative;
-    top: 195px;
-    left: 425px;
-    display: flex;
-    flex-direction: column;
+  width: 430px;
+  height: 330px;
+  z-index: 2;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  position: relative;
+  top: 195px;
+  left: 425px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 320px) {
-    .popup__container {
-        max-width: 282px;
-        height: 322px;
-        left: 19px;
-        top: 123px;
-    }
-    
+  .popup__container {
+    max-width: 282px;
+    height: 322px;
+    left: 19px;
+    top: 123px;
+  }
 }
