@@ -1,17 +1,23 @@
 # Проект: Место
 
-### Обзор
 
-* Figma
-* Картинки
+<div id="header" align="center">
+  <img src="https://media.giphy.com/media/kDO5RDvqN0nLUxzN1i/giphy.gif" width="200"/>
+</div>
 
-**Figma**
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
-
-**Картинки**
-
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
+ Главная цель проекта - дать пользователю показать свои увлечения путешествиями другим, тем самым вдохновить из. 
+ 
+ Он состоит из шапки страницы, основного контента (в котором показано, информация о том, кому принадлежит профиль, какие интересные места пользовать посетил) и подвал. С сайтом можете ознакомиться по ссылке https://valeryvigovskaya.github.io/mesto-project/
+ 
+ Адаптивная верстка выполнена на HTML и CSS, в основе лежит флексверстка и grid layout. По модификатору popup_opened добавлено диалоговое окно для редактирования профиля.
+ 
+ 
+ 
+ ---
+  :hammer_and_wrench: Используется :
+ 
+ <div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML5" width="40" height="40"/>&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" title="CSS" alt="CSS" width="40" height="40"/>&nbsp;
+</div>
