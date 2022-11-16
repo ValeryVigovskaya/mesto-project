@@ -4,3 +4,9 @@
     border-radius: 10px 10px 0px 0px;
     
 }
+
+@media screen and (max-width: 1279px) {
+    .element__image {
+        border-radius: 5px 5px 5px 5px;
+    }
+}  

@@ -9,7 +9,7 @@
     gap: 20px 17px;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1278px) {
+@media screen and (max-width: 320px) {
     .elements {
         gap: 10px 10px;
     }
