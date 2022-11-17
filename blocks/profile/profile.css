@@ -7,19 +7,29 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (min-width: 932px) and (max-width: 1279px) {
   .profile {
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 682px) {
-  .profile {
-    max-width: 69%;
+    max-width: 75%;
   }
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (min-width: 321px) and (max-width: 931px) {
   .profile {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 607px) {
+  .profile {
+    max-width: 100%;
+    flex-direction: column;
+    padding: 42px 19px 36px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    max-width: 100%;
     flex-direction: column;
     padding: 42px 19px 36px;
   }

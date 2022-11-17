@@ -9,9 +9,18 @@
   align-self: center;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 737px) {
   .profile__username {
     font-size: 27px;
+    padding-right: 5px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .profile__username {
+    max-width: 189px;
+    line-height: 33px;
     padding-right: 10px;
+    font-size: 27px;
+    align-self: flex-end;
   }
 }

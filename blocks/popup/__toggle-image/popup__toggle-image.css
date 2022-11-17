@@ -1,9 +1,14 @@
 .popup__toggle-image {
-  max-width: 32px;
+  width: 32px;
   height: 32px;
   position: relative;
+  padding: 0;
+  border: none;
   left: 863px;
   top: 190px;
+  background-image: url("../../../images/Close-Icon.png");
+  background-size: contain;
+  background-color: transparent;
 }
 
 .popup__toggle-image:hover {
@@ -12,11 +17,39 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 596px) and (max-width: 896px) {
+  .popup__toggle-image {
+    left: 563px;
+    top: 123px;
+  }
+}
+
+@media screen and (max-width: 597px) {
+  .popup__toggle-image {
+    left: 520px;
+    top: 123px;
+  }
+}
+
+@media screen and (max-width: 557px) {
+  .popup__toggle-image {
+    left: 320px;
+    top: 123px;
+  }
+}
+
+@media screen and (max-width: 353px) {
+  .popup__toggle-image {
+    left: 280px;
+    top: 123px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .popup__toggle-image {
-    max-width: 20px;
+    width: 20px;
     height: 20px;
     left: 281px;
-    top: 87px;
+    top: 111px;
   }
 }

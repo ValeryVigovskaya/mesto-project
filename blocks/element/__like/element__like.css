@@ -1,26 +1,15 @@
 .element__like {
-  max-width: 100%;
-  position: absolute;
-  left: 240px;
-  bottom: 36px;
+  width: 22px;
+  height: 19px;
+  border: 0;
+  background-image: url("../../../images/heart.svg");
+  background-size: 22px;
+  background-repeat: no-repeat;
+  background-color: transparent;
 }
 
 .element__like:hover {
   transition: 0.35s;
   opacity: 0.5;
-}
-
-.element__like:active {
-  background-image: url(../../../images/heart-black.svg);
-  opacity: 100%;
-  max-width: 100%;
-  transition: 0.35s;
-  z-index: 100;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .element__like {
-    left: 150px;
-    bottom: 100px;
-  }
+  cursor: pointer;
 }

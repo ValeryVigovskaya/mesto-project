@@ -8,8 +8,8 @@
     <title>Project Mesto</title>
   </head>
   <body class="page">
-    <section class="popup">
-      <img class="popup__toggle-image" src="./images/Close-Icon.png" alt="кнопка закрытия" >
+    <section class="popup popup_opened">
+      <button type="button" class="popup__toggle-image"></button>
       <form class="popup__container">
         <h2 class="popup__heading">Редактировать профиль</h2>
         <fieldset class="popup__input">
@@ -17,16 +17,16 @@
             type="text"
             class="popup__item popup__name"
             name="name"
-            placeholder="Имя"
+            placeholder="Жак-Ив Кусто"
           >
           <input
             class="popup__item popup__description"
             name="description"
-            placeholder="О себе"
+            placeholder="Исследователь океана"
           >
         </fieldset>
         <fieldset class="popup__handler">
-          <input type="submit" value="Сохранить" class="popup__button" >
+          <button type="button" class="popup__button">Сохранить</button>
         </fieldset>
       </form>
     </section>
@@ -38,110 +38,86 @@
         <img src="./images/avatar.jpg" alt="аватар" class="profile__avatar" >
         <div class="profile__info">
           <h1 class="profile__username">Жак-Ив Кусто</h1>
-          <img src="./images/edit.png" class="profile__edit-button" alt="кнопка редактирования">
+          <button type="button" class="profile__edit-button"></button>
           <p class="profile__description">Исследователь океана</p>
         </div>
-        <img src="./images/add.png" class="profile__add-button" alt="кнопка добавить">
+        <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements">
         <ul class="elements__list">
           <li class="element">
+            <img
+              src="./images/karachaevsk.png"
+              alt="Карачаевск"
+              class="element__image"
+            >
             <figure class="element__group">
-              <img
-                src="./images/karachaevsk.png"
-                alt="Карачаевск"
-                class="element__image"
-              >
               <figcaption class="element__caption">Карачаевск</figcaption>
+              <button type="button" class="element__like"></button>
             </figure>
-            <img
-              src="./images/heart.svg"
-              alt="сердечко"
-              class="element__like"
-            >
           </li>
           <li class="element">
+            <img
+              src="./images/elbrus.png"
+              alt="эльбрус"
+              class="element__image"
+            >
             <figure class="element__group">
-              <img
-                src="./images/elbrus.png"
-                alt="эльбрус"
-                class="element__image"
-              >
               <figcaption class="element__caption">Гора Эльбрус</figcaption>
+              <button type="button" class="element__like"></button>
             </figure>
-            <img
-              src="./images/heart.svg"
-              alt="сердечко"
-              class="element__like"
-            >
           </li>
           <li class="element">
+            <img
+              src="./images/kirill-pershin-1556355-unsplash.png"
+              alt="Домбай"
+              class="element__image"
+            >
             <figure class="element__group">
-              <img
-                src="./images/kirill-pershin-1556355-unsplash.png"
-                alt="Домбай"
-                class="element__image"
-              >
               <figcaption class="element__caption">Домбай</figcaption>
+              <button type="button" class="element__like"></button>
             </figure>
-            <img
-              src="./images/heart.svg"
-              alt="сердечко"
-              class="element__like"
-            >
           </li>
           <li class="element">
+            <img
+              src="./images/elbrus.png"
+              alt="эльбрус"
+              class="element__image"
+            >
             <figure class="element__group">
-              <img
-                src="./images/elbrus.png"
-                alt="эльбрус"
-                class="element__image"
-              >
               <figcaption class="element__caption">Гора Эльбрус</figcaption>
+              <button type="button" class="element__like"></button>
             </figure>
-            <img
-              src="./images/heart.svg"
-              alt="сердечко"
-              class="element__like"
-            >
           </li>
           <li class="element">
+            <img
+              src="./images/kirill-pershin-1556355-unsplash.png"
+              alt="Домбай"
+              class="element__image"
+            >
             <figure class="element__group">
-              <img
-                src="./images/kirill-pershin-1556355-unsplash.png"
-                alt="Домбай"
-                class="element__image"
-              >
               <figcaption class="element__caption">Домбай</figcaption>
+              <button type="button" class="element__like"></button>
             </figure>
-            <img
-              src="./images/heart.svg"
-              alt="сердечко"
-              class="element__like"
-            >
           </li>
           <li class="element">
+            <img
+              src="./images/karachaevsk.png"
+              alt="Карачаево-Черкесия"
+              class="element__image"
+            >
             <figure class="element__group">
-              <img
-                src="./images/karachaevsk.png"
-                alt="Карачаево-Черкесия"
-                class="element__image"
-              >
               <figcaption class="element__caption">
                 Карачаево-Черкесия
               </figcaption>
+              <button type="button" class="element__like"></button>
             </figure>
-            <img
-              src="./images/heart.svg"
-              alt="сердечко"
-              class="element__like"
-            >
           </li>
         </ul>
       </section>
     </main>
     <footer class="footer">
-      <p class="footer__copyright">&copy;2020 Mesto Russia</p>
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
   </body>
 </html>

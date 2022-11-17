@@ -12,6 +12,21 @@
   flex-direction: column;
 }
 
+@media screen and (min-width: 557px) and (max-width: 896px) {
+  .popup__container {
+    left: 125px;
+    top: 123px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 557px) {
+  .popup__container {
+    max-width: 282px;
+    left: 40px;
+    top: 123px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .popup__container {
     max-width: 282px;

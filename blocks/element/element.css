@@ -1,6 +1,12 @@
 .element {
-  max-width: 100%;
+  max-width: 282px;
+  min-height: 361px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px 10px 10px 10px;
   margin: 0;
-  position: relative;
-  align-self: center;
+  justify-self: center;
+  justify-items: center;
+  display: flex;
+  flex-direction: column;
 }
