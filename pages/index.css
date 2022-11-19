@@ -2,6 +2,7 @@
 @import url("../vendor/fonts.css");
 
 @import url("../blocks/page/page.css");
+@import url("../blocks/page/_active/page_active.css");
 
 @import url("../blocks/header/header.css");
 @import url("../blocks/header/__logo/header__logo.css");
@@ -34,5 +35,4 @@
 @import url("../blocks/popup/__item/popup__item.css");
 @import url("../blocks/popup/__name/popup__name.css");
 @import url("../blocks/popup/__description/popup__description.css");
-@import url("../blocks/popup/__handler/popup__handler.css");
 @import url("../blocks/popup/__button/popup__button.css");
