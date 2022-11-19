@@ -4,11 +4,7 @@
   padding: 14px 64px;
   justify-self: end;
   border: 2px solid #fff;
-  background-image: url("../../../images/add.png");
-  background-position: center;
-  background-size: 22px;
-  background-repeat: no-repeat;
-  background-color: transparent;
+  background: no-repeat center/22px transparent url("../../../images/add.png");
 }
 
 .profile__add-button:hover {

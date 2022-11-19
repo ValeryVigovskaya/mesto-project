@@ -9,117 +9,159 @@
   </head>
   <body class="page_active">
     <div class="page">
-    <header class="header">
-      <img src="./images/logo.svg" alt="логотип" class="header__logo" >
-    </header>
-    <main>
-      <section class="profile">
-        <img src="./images/avatar.jpg" alt="аватар" class="profile__avatar" >
-        <div class="profile__info">
-          <h1 class="profile__username">Жак-Ив Кусто</h1>
-          <button type="button" class="profile__edit-button"></button>
-          <p class="profile__description">Исследователь океана</p>
-        </div>
-        <button type="button" class="profile__add-button"></button>
-      </section>
-      <section class="elements">
-        <ul class="elements__list">
-          <li class="element">
-            <img
-              src="./images/karachaevsk.png"
-              alt="Карачаевск"
-              class="element__image"
+      <header class="header">
+        <img src="./images/logo.svg" alt="логотип" class="header__logo" >
+      </header>
+      <main>
+        <section class="profile">
+          <img
+            src="./images/avatar.jpg"
+            alt="пример аватарки пользователя"
+            class="profile__avatar"
+          >
+          <div class="profile__info">
+            <h1 class="profile__username">Жак-Ив Кусто</h1>
+            <button
+              type="button"
+              class="profile__edit-button"
+              aria-label="edit_button"
+            ></button>
+            <p class="profile__description">Исследователь океана</p>
+          </div>
+          <button
+            type="button"
+            class="profile__add-button"
+            aria-label="edd_button"
+          ></button>
+        </section>
+        <section class="elements">
+          <ul class="elements__list">
+            <li class="element">
+              <img
+                src="./images/karachaevsk.png"
+                alt="дом в горах"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Карачаевск</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/elbrus.png"
+                alt="гора эльбрус на фоне заката"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Гора Эльбрус</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/kirill-pershin-1556355-unsplash.png"
+                alt="заснеженые горы в пасмурную погоду"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Домбай</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/elbrus.png"
+                alt="гора эльбрус на фоне заката"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Гора Эльбрус</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/kirill-pershin-1556355-unsplash.png"
+                alt="заснеженые горы в пасмурную погоду"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Домбай</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/karachaevsk.png"
+                alt="дом в горах"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Карачаево-Черкесия</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+      </footer>
+    </div>
+    <div class="popup">
+      <div class="popup__container">
+        <form name="edit" class="popup__form" method="post">
+          <button
+            type="button"
+            class="popup__toggle-image"
+            aria-label="closed_button"
+          ></button>
+          <h2 class="popup__heading">Редактировать профиль</h2>
+          <fieldset class="popup__input">
+            <input
+              type="text"
+              class="popup__item"
+              name="name"
+              id="name"
+              placeholder="Имя"
             >
-            <figure class="element__group">
-              <figcaption class="element__caption">Карачаевск</figcaption>
-              <button type="button" class="element__like"></button>
-            </figure>
-          </li>
-          <li class="element">
-            <img
-              src="./images/elbrus.png"
-              alt="эльбрус"
-              class="element__image"
+            <input
+              class="popup__item"
+              id="description"
+              name="description"
+              placeholder="О себе"
             >
-            <figure class="element__group">
-              <figcaption class="element__caption">Гора Эльбрус</figcaption>
-              <button type="button" class="element__like"></button>
-            </figure>
-          </li>
-          <li class="element">
-            <img
-              src="./images/kirill-pershin-1556355-unsplash.png"
-              alt="Домбай"
-              class="element__image"
-            >
-            <figure class="element__group">
-              <figcaption class="element__caption">Домбай</figcaption>
-              <button type="button" class="element__like"></button>
-            </figure>
-          </li>
-          <li class="element">
-            <img
-              src="./images/elbrus.png"
-              alt="эльбрус"
-              class="element__image"
-            >
-            <figure class="element__group">
-              <figcaption class="element__caption">Гора Эльбрус</figcaption>
-              <button type="button" class="element__like"></button>
-            </figure>
-          </li>
-          <li class="element">
-            <img
-              src="./images/kirill-pershin-1556355-unsplash.png"
-              alt="Домбай"
-              class="element__image"
-            >
-            <figure class="element__group">
-              <figcaption class="element__caption">Домбай</figcaption>
-              <button type="button" class="element__like"></button>
-            </figure>
-          </li>
-          <li class="element">
-            <img
-              src="./images/karachaevsk.png"
-              alt="Карачаево-Черкесия"
-              class="element__image"
-            >
-            <figure class="element__group">
-              <figcaption class="element__caption">
-                Карачаево-Черкесия
-              </figcaption>
-              <button type="button" class="element__like"></button>
-            </figure>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-    </footer>
-</div>
-<div class="popup popup_opened">
-  <div class="popup__container">
-     <form  type="name" class="popup__form">
-    <button type="button" class="popup__toggle-image"></button>
-    <h2 class="popup__heading">Редактировать профиль</h2>
-    <fieldset class="popup__input">
-      <input
-        type="text"
-        class="popup__item popup__name"
-        name="name"
-        placeholder="Жак-Ив Кусто"
-      >
-      <input
-        class="popup__item popup__description"
-        name="description"
-        placeholder="Исследователь океана"
-      >
-    </fieldset>
-      <button type="button" class="popup__button">Сохранить</button>
-  </form>
-  </div>
-</div>
+          </fieldset>
+          <button type="submit" class="popup__button" aria-label="save_button">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -2,10 +2,7 @@
   width: 22px;
   height: 19px;
   border: 0;
-  background-image: url("../../../images/heart.svg");
-  background-size: 22px;
-  background-repeat: no-repeat;
-  background-color: transparent;
+  background: no-repeat center/22px transparent url("../../../images/heart.svg");
 }
 
 .element__like:hover {

@@ -4,12 +4,9 @@
   position: absolute;
   border: none;
   left: 437px;
-  bottom: 334px;
+  bottom: 333px;
   margin: 0;
-  background-image: url("../../../images/Close-Icon.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-color: transparent;
+  background: no-repeat center/32px transparent url("../../../images/Close-Icon.png");
 }
 
 .popup__toggle-image:hover {
@@ -23,12 +20,7 @@
     width: 20px;
     height: 20px;
     left: 262px;
-    bottom: 346px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .popup__toggle-image {
     bottom: 337px;
+    background-size: 20px;
   }
 }

@@ -4,10 +4,7 @@
   padding: 6px;
   border: 1px solid #fff;
   align-self: center;
-  background-image: url("../../../images/edit.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
+  background: no-repeat center transparent url("../../../images/edit.png");
 }
 
 .profile__edit-button:hover {
