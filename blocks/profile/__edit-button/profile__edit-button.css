@@ -3,8 +3,7 @@
   height: 24px;
   padding: 6px;
   border: 1px solid #fff;
-  align-self: center;
-  background: no-repeat center transparent url("../../../images/edit.png");
+  background: no-repeat center/10px transparent url("../../../images/edit.png");
 }
 
 .profile__edit-button:hover {
@@ -23,5 +22,6 @@
   .profile__edit-button {
     width: 18px;
     height: 18px;
+    background-size: 7.5px;
   }
 }

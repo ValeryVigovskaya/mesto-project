@@ -26,11 +26,3 @@
     padding: 42px 19px 36px;
   }
 }
-
-@media screen and (max-width: 320px) {
-  .profile {
-    max-width: 100%;
-    flex-direction: column;
-    padding: 42px 19px 36px;
-  }
-}

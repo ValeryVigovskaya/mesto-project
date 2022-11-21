@@ -3,6 +3,8 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   padding-left: 30px;
   padding-right: 244px;
 }
@@ -19,9 +21,7 @@
     margin: 0 auto;
     padding-top: 26px;
     padding-left: 0;
-    padding-right: 0;
     padding-bottom: 36px;
-    justify-content: center;
   }
 }
 
