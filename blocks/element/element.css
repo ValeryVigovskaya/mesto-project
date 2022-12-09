@@ -1,6 +1,6 @@
 .element {
   max-width: 282px;
-  height: 361px;
+  min-height: 361px;
   margin: 0 auto;
   background-color: #fff;
   border-radius: 10px 10px 10px 10px;
@@ -8,5 +8,4 @@
   justify-items: center;
   display: flex;
   flex-direction: column;
-  position: relative;
 }

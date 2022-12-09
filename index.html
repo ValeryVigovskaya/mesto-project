@@ -31,30 +31,101 @@
           <button
             type="button"
             class="profile__add-button"
-            aria-label="add_button"
+            aria-label="edd_button"
           ></button>
         </section>
         <section class="elements">
           <ul class="elements__list">
-            <template id="element-template">
-              <li class="element">
+            <li class="element">
+              <img
+                src="./images/karachaevsk.png"
+                alt="дом в горах"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Карачаевск</h2>
                 <button
                   type="button"
-                  class="element__delete"
-                  aria-label="delete_button"
-                  id="delete_button"
+                  class="element__like"
+                  aria-label="like_button"
                 ></button>
-                <img src="" alt="дом в горах" class="element__image" >
-                <div class="element__group">
-                  <h2 class="element__caption"></h2>
-                  <button
-                    type="button"
-                    class="element__like"
-                    aria-label="like_button"
-                  ></button>
-                </div>
-              </li>
-            </template>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/elbrus.png"
+                alt="гора эльбрус на фоне заката"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Гора Эльбрус</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/kirill-pershin-1556355-unsplash.png"
+                alt="заснеженые горы в пасмурную погоду"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Домбай</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/elbrus.png"
+                alt="гора эльбрус на фоне заката"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Гора Эльбрус</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/kirill-pershin-1556355-unsplash.png"
+                alt="заснеженые горы в пасмурную погоду"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Домбай</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
+            <li class="element">
+              <img
+                src="./images/karachaevsk.png"
+                alt="дом в горах"
+                class="element__image"
+              >
+              <div class="element__group">
+                <h2 class="element__caption">Карачаево-Черкесия</h2>
+                <button
+                  type="button"
+                  class="element__like"
+                  aria-label="like_button"
+                ></button>
+              </div>
+            </li>
           </ul>
         </section>
       </main>
@@ -62,7 +133,7 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
       </footer>
     </div>
-    <div class="popup" id="popup__edit">
+    <div class="popup">
       <div class="popup__container">
         <form name="edit" class="popup__form" method="post">
           <button
@@ -78,77 +149,19 @@
               name="name"
               id="name"
               placeholder="Имя"
-              value="Жак-Ив Кусто"
             >
             <input
               class="popup__item"
               id="description"
               name="description"
               placeholder="О себе"
-              value="Исследователь океана"
             >
           </fieldset>
-          <button
-            type="submit"
-            class="popup__button"
-            id="save_button"
-            aria-label="save_button"
-          >
+          <button type="submit" class="popup__button" aria-label="save_button">
             Сохранить
           </button>
         </form>
       </div>
     </div>
-    <div class="popup" id="popup__add">
-      <div class="popup__container">
-        <form name="add" class="popup__form" id="form_add" method="post">
-          <button
-            type="button"
-            class="popup__toggle-image"
-            aria-label="closed_button"
-          ></button>
-          <h2 class="popup__heading">Новое место</h2>
-          <fieldset class="popup__input">
-            <input
-              type="text"
-              class="popup__item"
-              name="name"
-              id="title"
-              placeholder="Название"
-              value=""
-            >
-            <input
-              class="popup__item"
-              id="link"
-              name="link"
-              placeholder="Ссылка на картинку"
-              value=""
-            >
-          </fieldset>
-          <button
-            type="submit"
-            class="popup__button"
-            id="create_button"
-            aria-label="create_button"
-          >
-            Создать
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="popup" id="popup_with_img">
-      <div class="popup__img-container">
-        <button
-          type="button"
-          class="popup__figure-toggle-image"
-          aria-label="closed_button"
-        ></button>
-        <figure class="popup__figure">
-          <img src="" alt="" class="popup__image" >
-          <figcaption class="popup__caption"></figcaption>
-        </figure>
-      </div>
-    </div>
-    <script src="./script.js"></script>
   </body>
 </html>
