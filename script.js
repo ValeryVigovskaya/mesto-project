@@ -42,6 +42,8 @@ const formElement = document.querySelector('.popup__form');
 // Находим поля формы в DOM
 const textInput = document.querySelector('#name');
 const jobInput = document.querySelector('#description');
+let username = document.querySelector('.profile__username');
+let description = document.querySelector('.profile__description');
 const insertImg = document.querySelector('.popup__image');
 const insertName = document.querySelector('.popup__caption');
 const formElementAdd = document.querySelector('#form_add');
@@ -62,6 +64,8 @@ function closePopup(popup) {
 
 //открытие и закрытие попапа редактирования
 editButton.addEventListener('click', function () {
+  textInput.value = username.textContent;
+  jobInput.value = description.textContent;
   openPopup(popupEdit);
 })
 
