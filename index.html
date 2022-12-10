@@ -36,25 +36,6 @@
         </section>
         <section class="elements">
           <ul class="elements__list">
-            <template id="element-template">
-              <li class="element">
-                <button
-                  type="button"
-                  class="element__delete"
-                  aria-label="delete_button"
-                  id="delete_button"
-                ></button>
-                <img src="" alt="дом в горах" class="element__image" >
-                <div class="element__group">
-                  <h2 class="element__caption"></h2>
-                  <button
-                    type="button"
-                    class="element__like"
-                    aria-label="like_button"
-                  ></button>
-                </div>
-              </li>
-            </template>
           </ul>
         </section>
       </main>
@@ -91,7 +72,6 @@
           <button
             type="submit"
             class="popup__button"
-            id="save_button"
             aria-label="save_button"
           >
             Сохранить
@@ -101,7 +81,7 @@
     </div>
     <div class="popup" id="popup__add">
       <div class="popup__container">
-        <form name="add" class="popup__form" id="form_add" method="post">
+        <form name="add" class="popup__form" method="post">
           <button
             type="button"
             class="popup__toggle-image"
@@ -128,7 +108,6 @@
           <button
             type="submit"
             class="popup__button"
-            id="create_button"
             aria-label="create_button"
           >
             Создать
@@ -149,6 +128,26 @@
         </figure>
       </div>
     </div>
-    <script src="./script.js"></script>
+    <template id="element-template">
+      <li class="element">
+        <button
+          type="button"
+          class="element__delete"
+          aria-label="delete_button"
+        ></button>
+        <img src="" alt="дом в горах" class="element__image" >
+        <div class="element__group">
+          <h2 class="element__caption"></h2>
+          <button
+            type="button"
+            class="element__like"
+            aria-label="like_button"
+          ></button>
+        </div>
+      </li>
+    </template>
+    <script src="./new-cards.js"></script>
+    <script src="./script.js" type="module">
+    </script>
   </body>
 </html>
