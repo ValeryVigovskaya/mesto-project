@@ -18,8 +18,8 @@ const textInput = popupEdit.querySelector('#name');
 const jobInput = popupEdit.querySelector('#description');
 const username = document.querySelector('.profile__username');
 const description = document.querySelector('.profile__description');
-const ImgInsert = document.querySelector('.popup__image');
-const NameInsert = document.querySelector('.popup__caption');
+const imgInsert = document.querySelector('.popup__image');
+const nameInsert = document.querySelector('.popup__caption');
 const formElementAdd = popupAdd.querySelector('.popup__form');
 
 // Находим поля формы в DOM
@@ -51,7 +51,7 @@ popupEditCloseButton.addEventListener('click', function () {
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function handleFormSubmit(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   // Получите значение полей jobInput и nameInput из свойства value
   textInput.value;
@@ -63,7 +63,7 @@ function handleFormSubmit(evt) {
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formEditProfile.addEventListener('submit', handleFormSubmit);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 // реализация сохранения при изменении данных пользователя
 popupEditSaveButton.addEventListener('click', function () {
@@ -123,14 +123,14 @@ popupAddCreateButton.addEventListener('click', () => {
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function handleFormSubmitTwo(evt) {
+function submitCardForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   elementsList.prepend(createElement(linkInput.value, nameInput.value));
 }
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElementAdd.addEventListener('submit', handleFormSubmitTwo);
+formElementAdd.addEventListener('submit', submitCardForm);
 
 
 //функция закрытия попапа с картинкой
@@ -143,7 +143,7 @@ popupImgCloseButton.addEventListener('click', function () {
 
 function createNewPopupImage(link, name) {
   openPopup(popupImg);
-  ImgInsert.src = link;
-  ImgInsert.alt = name;
-  NameInsert.textContent = name;
+  imgInsert.src = link;
+  imgInsert.alt = name;
+  nameInsert.textContent = name;
 }
