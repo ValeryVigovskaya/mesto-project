@@ -4,18 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/pages/index.css" />
     <title>Project Mesto</title>
   </head>
   <body class="project">
     <div class="page">
       <header class="header">
-        <img src="./src/images/logo.svg" alt="логотип" class="header__logo" />
+        <img src="<%=require('./images/logo.svg')%>" alt="логотип" class="header__logo" />
       </header>
       <main>
         <section class="profile">
           <img
-            src="./src/images/avatar.jpg"
+            src="<%=require('./images/avatar.jpg')%>"
             alt="пример аватарки пользователя"
             class="profile__avatar"
           />
@@ -162,12 +161,5 @@
         </div>
       </li>
     </template>
-
-    <script type="module" src="./src/components/index.js"></script>
-    <script type="module" src="./src/components/variables.js"></script>
-    <script type="module" src="./src/components/validate.js"></script>
-    <script type="module" src="./src/components/modal.js"></script>
-    <script type="module" src="./src/components/card.js"></script>
-    <script type="module" src="./src/components/utils.js"></script>
   </body>
 </html>

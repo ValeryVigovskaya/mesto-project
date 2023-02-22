@@ -1,12 +1,14 @@
+import './pages/index.css';
+
 import {initialCards, popupEditOpenButton, popupEdit, popupEditCloseButton,
   popupEditSaveButton, popupAddOpenButton, popupAdd,
   popupAddCloseButton, popupAddCreateButton, popupImg,
   popupImgCloseButton, elementsList, formEditProfile, textInput,
   jobInput, username, description,
   formElementAdd,
-} from './variables.js'
+} from '../src/components/variables.js'
 
-import {enableValidation} from './validate.js'
+import {enableValidation} from '../src/components/validate.js'
 
 enableValidation({
   form: '.popup__form',
@@ -17,11 +19,11 @@ enableValidation({
   errorClass: '.popup__item-error_active'
 });
 
-import {openPopup, closePopup} from './modal.js'
+import {openPopup, closePopup} from '../src/components/modal.js'
 
-import {submitEditProfileForm, submitCardForm} from './utils.js'
+import {submitEditProfileForm, submitCardForm} from '../src/components/utils.js'
 
-import {createElement} from './card.js'
+import {createElement} from '../src/components/card.js'
 
 createElement({
   linkInput: '.element__image',
