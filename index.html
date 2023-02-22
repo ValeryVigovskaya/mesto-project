@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="./pages/index.css" >
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/pages/index.css" />
     <title>Project Mesto</title>
   </head>
   <body class="project">
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="логотип" class="header__logo" >
+        <img src="./src/images/logo.svg" alt="логотип" class="header__logo" />
       </header>
       <main>
         <section class="profile">
           <img
-            src="./images/avatar.jpg"
+            src="./src/images/avatar.jpg"
             alt="пример аватарки пользователя"
             class="profile__avatar"
-          >
+          />
           <div class="profile__info">
             <h1 class="profile__username">Жак-Ив Кусто</h1>
             <button
@@ -35,8 +35,7 @@
           ></button>
         </section>
         <section class="elements">
-          <ul class="elements__list">
-          </ul>
+          <ul class="elements__list"></ul>
         </section>
       </main>
       <footer class="footer">
@@ -45,7 +44,7 @@
     </div>
     <div class="popup" id="popup__edit">
       <div class="popup__container">
-        <form name="edit" class="popup__form" method="post">
+        <form name="edit" class="popup__form" method="post" novalidate>
           <button
             type="button"
             class="popup__toggle-image"
@@ -60,20 +59,28 @@
               id="name"
               placeholder="Имя"
               value=""
-            >
+              minlength="2"
+              maxlength="40"
+              pattern="^[a-zA-ZаА-яЯёЁ\s\-]+$"
+              data-error-message="Разрешены только латинские,
+              кириллические буквы, знаки дефиса и пробелы"
+            required >
+            <span class="popup__item-error name-error"></span>
             <input
               class="popup__item"
               id="description"
               name="description"
               placeholder="О себе"
               value=""
-            >
+              minlength="2"
+              maxlength="200"
+              pattern="^[a-zA-ZаА-яЯёЁ\s\-]+$"
+              data-error-message="Разрешены только латинские,
+              кириллические буквы, знаки дефиса и пробелы"
+            required >
+            <span class="popup__item-error description-error"></span>
           </fieldset>
-          <button
-            type="submit"
-            class="popup__button"
-            aria-label="save_button"
-          >
+          <button type="submit" class="popup__button" aria-label="save_button">
             Сохранить
           </button>
         </form>
@@ -81,7 +88,7 @@
     </div>
     <div class="popup" id="popup__add">
       <div class="popup__container">
-        <form name="add" class="popup__form" method="post">
+        <form name="add" class="popup__form" method="post" novalidate>
           <button
             type="button"
             class="popup__toggle-image"
@@ -96,14 +103,23 @@
               id="title"
               placeholder="Название"
               value=""
-            >
+              minlength="2"
+              maxlength="30"
+              pattern="^[a-zA-ZаА-яЯёЁ\s\-]+$"
+              data-error-message="Разрешены только латинские,
+              кириллические буквы, знаки дефиса и пробелы"
+            required >
+            <span class="popup__item-error title-error"></span>
             <input
               class="popup__item"
+              type="url"
               id="link"
               name="link"
               placeholder="Ссылка на картинку"
               value=""
-            >
+              required
+            />
+            <span class="popup__item-error link-error"></span>
           </fieldset>
           <button
             type="submit"
@@ -123,7 +139,7 @@
           aria-label="closed_button"
         ></button>
         <figure class="popup__figure">
-          <img src="" alt="" class="popup__image" >
+          <img src="" alt="" class="popup__image" />
           <figcaption class="popup__caption"></figcaption>
         </figure>
       </div>
@@ -135,7 +151,7 @@
           class="element__delete"
           aria-label="delete_button"
         ></button>
-        <img src="" alt="дом в горах" class="element__image" >
+        <img src="" alt="дом в горах" class="element__image" />
         <div class="element__group">
           <h2 class="element__caption"></h2>
           <button
@@ -146,8 +162,12 @@
         </div>
       </li>
     </template>
-    <script src="./new-cards.js"></script>
-    <script src="./script.js">
-    </script>
+
+    <script type="module" src="./src/components/index.js"></script>
+    <script type="module" src="./src/components/variables.js"></script>
+    <script type="module" src="./src/components/validate.js"></script>
+    <script type="module" src="./src/components/modal.js"></script>
+    <script type="module" src="./src/components/card.js"></script>
+    <script type="module" src="./src/components/utils.js"></script>
   </body>
 </html>

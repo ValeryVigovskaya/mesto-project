@@ -8,8 +8,9 @@
   z-index: 100;
   visibility:hidden;
   opacity:0;
-  overflow-y: hidden;
+  overflow: hidden;
   transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 896px) {

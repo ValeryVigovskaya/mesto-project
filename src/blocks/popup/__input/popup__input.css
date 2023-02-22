@@ -1,6 +1,6 @@
 .popup__input {
   max-width: 100%;
-  padding: 45px 36px 48px;
+  padding: 45px 36px 13px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,6 +9,6 @@
 
 @media screen and (max-width: 557px) {
   .popup__input {
-    padding: 69px 22px 46px;
+    padding: 34px 22px 11px;
   }
 }

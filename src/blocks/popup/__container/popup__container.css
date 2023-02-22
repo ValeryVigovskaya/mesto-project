@@ -1,6 +1,8 @@
 .popup__container {
   margin: auto;
   width: 430px;
+  cursor: default;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 557px) {

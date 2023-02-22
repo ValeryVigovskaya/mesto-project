@@ -11,12 +11,3 @@
   margin: 0;
 }
 
-.popup__item:last-of-type {
-  padding-top: 26px;
-}
-
-@media screen and (max-width: 557px) {
-  .popup__item:last-of-type {
-    padding-top: 30px;
-  }
-}
