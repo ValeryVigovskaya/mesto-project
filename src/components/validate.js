@@ -1,20 +1,22 @@
+import {settings} from '../components/variables.js'
+
 //скрипт для валидации форм
 // Функция, которая добавляет класс с ошибкой
-const showItemError = (form, formItem, errorMessage) => {
+const showItemError = (form, formItem, errorMessage, settings) => {
   // Находим элемент ошибки внутри самой функции
   const formError = form.querySelector(`.${formItem.id}-error`);
-  formItem.classList.add('popup__item_type_error');
+  formItem.classList.add(settings.inputErrorClass);
   // Заменим содержимое span с ошибкой на переданный параметр
   formError.textContent = errorMessage;
   // Показываем сообщение об ошибке
-  formError.classList.add('popup__item-error_active');
+  formError.classList.add(settings.errorClass);
 };
 
 // Функция, удаления класса с ошибкой
-const hideItemError = (form, formItem) => {
+const hideItemError = (form, formItem, settings) => {
   const formError = form.querySelector(`.${formItem.id}-error`);
-  formItem.classList.remove('popup__item_type_error');
-  formError.classList.remove('popup__item-error_active');//скрыли сообщение об ошибке
+  formItem.classList.remove(settings.inputErrorClass);
+  formError.classList.remove(settings.errorClass);//скрыли сообщение об ошибке
   formError.textContent = ''; //очистили ошибку
 };
 
@@ -26,9 +28,9 @@ const isValid = (form, formItem) => {
     formItem.setCustomValidity("");
   }
   if (!formItem.validity.valid) {
-    showItemError(form, formItem, formItem.validationMessage);
+    showItemError(form, formItem, formItem.validationMessage, settings);
   } else {
-    hideItemError(form, formItem);
+    hideItemError(form, formItem, settings);
   }
 };
 
@@ -40,39 +42,42 @@ const hasInvalidInput = (inputList) => {
 };
 
 //функция активации кнопки сохранить/создать
-function toggleButtonState(inputList, buttonElement) {
+function toggleButtonState(inputList, buttonElement, settings) {
   if (hasInvalidInput(inputList)) {
     buttonElement.disabled = true;
-    buttonElement.classList.add('popup__button_inactive');
+    buttonElement.classList.add(settings.inactiveButtonClass);
   } else {
     buttonElement.disabled = false;
-    buttonElement.classList.remove('popup__button_inactive');
+    buttonElement.classList.remove(settings.inactiveButtonClass);
   }
 }
 //добавления слушателя всем полям внутри формы
-const setEventListeners = (form) => {
-  const inputList = Array.from(form.querySelectorAll('.popup__item'));
-  const buttonElement = form.querySelector('.popup__button');
-  toggleButtonState(inputList, buttonElement);
+const setEventListeners = (form, settings) => {
+  const inputList = Array.from(form.querySelectorAll(settings.inputSelector));
+  const buttonElement = form.querySelector(settings.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, settings);
   inputList.forEach((formItem) => {
     formItem.addEventListener('input', () => {
       isValid(form, formItem);
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement, settings);
     });
-  });
+
+    formItem.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleButtonState(inputList, buttonElement, settings), 0 })
+  })
+});
 };
 
 //функция перебирает все формы
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
+const enableValidation = (settings) => {
+  const formList = Array.from(document.querySelectorAll(settings.formSelector));
   formList.forEach((form) => {
     form.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    setEventListeners(form);
+    setEventListeners(form, settings);
   });
 };
-
-
 
 export {enableValidation}

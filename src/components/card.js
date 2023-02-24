@@ -1,8 +1,7 @@
-import {popupImg, imgInsert, nameInsert} from './variables.js'
+import {popupImg, imgInsert, nameInsert, elementTemplate} from './variables.js'
 import {openPopup} from './modal.js'  // импортировали функции, которые используются
 
 function createElement(link, name) {
-  const elementTemplate = document.querySelector('#element-template').content; //шаблон элемента из html
   const elementsClone = elementTemplate.querySelector('.element').cloneNode(true); //клонируем блок
   const elementsCloneDeleteButton = elementsClone.querySelector('.element__delete');  //добавили взаимодействие на кнопку удаления картинок
 

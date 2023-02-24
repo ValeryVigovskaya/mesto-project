@@ -25,17 +25,13 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
+const popups = document.querySelectorAll('.popup');
 const popupEditOpenButton = document.querySelector('.profile__edit-button');
 const popupEdit = document.querySelector('#popup__edit');
-const popupEditCloseButton = popupEdit.querySelector('.popup__toggle-image');
 const popupEditSaveButton = popupEdit.querySelector('.popup__button');
 const popupAddOpenButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('#popup__add');
-const popupAddCloseButton = popupAdd.querySelector('.popup__toggle-image');
-const popupAddCreateButton = popupAdd.querySelector('.popup__button');
 const popupImg = document.querySelector('#popup_with_img');
-const popupImgCloseButton = document.querySelector('.popup__figure-toggle-image');
 const elementsList = document.querySelector('.elements__list'); //добавили переменную,  в которую добавляется шаблон*/
 //реализация сохранения редактирования профиля
 const formEditProfile = popupEdit.querySelector('.popup__form');
@@ -49,10 +45,21 @@ const formElementAdd = popupAdd.querySelector('.popup__form');
 const nameInput = popupAdd.querySelector('#title');
 const linkInput = popupAdd.querySelector('#link');
 
-export{initialCards, popupEditOpenButton, popupEdit, popupEditCloseButton,
+const elementTemplate = document.querySelector('#element-template').content; //шаблон элемента из html
+
+const settings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__item',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_inactive',
+  inputErrorClass: 'popup__item_type_error',
+  errorClass: 'popup__item-error_active',
+}
+
+export{settings, popups,initialCards, popupEditOpenButton, popupEdit,
   popupEditSaveButton, popupAddOpenButton, popupAdd,
-  popupAddCloseButton, popupAddCreateButton, popupImg,
-  popupImgCloseButton, elementsList, formEditProfile, textInput,
+  popupImg,
+   elementsList, formEditProfile, textInput,
   jobInput, username, description, imgInsert, nameInsert,
-  formElementAdd, nameInput, linkInput
+  formElementAdd, nameInput, linkInput, elementTemplate
 }

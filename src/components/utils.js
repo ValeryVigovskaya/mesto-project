@@ -1,6 +1,7 @@
-import {textInput, jobInput, username, description, elementsList, nameInput, linkInput} from './variables.js'
-import {createElement} from './card.js'
-
+import { settings, popupEdit, popupAdd, textInput, jobInput, username, description, elementsList, nameInput, linkInput } from './variables.js'
+import { createElement } from './card.js'
+import { closePopup } from './modal.js'
+import { enableValidation } from './validate.js'
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function submitEditProfileForm(evt) {
@@ -11,6 +12,7 @@ function submitEditProfileForm(evt) {
   // Вставьте новые значения с помощью textContent
   username.textContent = textInput.value;
   description.textContent = jobInput.value;
+  closePopup(popupEdit);
 }
 
 // Обработчик «отправки» формы, хотя пока
@@ -18,7 +20,10 @@ function submitEditProfileForm(evt) {
 function submitCardForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   elementsList.prepend(createElement(linkInput.value, nameInput.value));
+  evt.target.reset();
+  enableValidation(settings); //при сабмите запускаем новую валидацию, чтобы отправка была неактивна
+  closePopup(popupAdd);
 }
 
 
-export {submitEditProfileForm, submitCardForm}
+export { submitEditProfileForm, submitCardForm }
