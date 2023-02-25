@@ -21,7 +21,7 @@ const hideItemError = (form, formItem, settings) => {
 };
 
 // Функция, которая проверяет валидность поля
-const isValid = (form, formItem) => {
+const isValid = (form, formItem, settings) => {
   if (formItem.validity.patternMismatch) {
     formItem.setCustomValidity(formItem.dataset.errorMessage);
   } else {
