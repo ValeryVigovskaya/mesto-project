@@ -31,6 +31,7 @@ const popupEdit = document.querySelector('#popup__edit');
 const popupEditSaveButton = popupEdit.querySelector('.popup__button');
 const popupAddOpenButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('#popup__add');
+const popupAddSubmitButton = popupAdd.querySelector('.popup__button');
 const popupImg = document.querySelector('#popup_with_img');
 const elementsList = document.querySelector('.elements__list'); //добавили переменную,  в которую добавляется шаблон*/
 //реализация сохранения редактирования профиля
@@ -59,7 +60,7 @@ const settings = {
 export{settings, popups,initialCards, popupEditOpenButton, popupEdit,
   popupEditSaveButton, popupAddOpenButton, popupAdd,
   popupImg,
-   elementsList, formEditProfile, textInput,
+  elementsList, formEditProfile, textInput,
   jobInput, username, description, imgInsert, nameInsert,
-  formElementAdd, nameInput, linkInput, elementTemplate
+  formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton
 }

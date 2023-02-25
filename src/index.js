@@ -6,7 +6,7 @@ import {
   popupAddOpenButton, popupAdd,
   elementsList, formEditProfile, textInput,
   jobInput, username, description,
-  formElementAdd,
+  formElementAdd, popupAddSubmitButton, nameInput, linkInput
 } from '../src/components/variables.js'
 
 import { enableValidation } from '../src/components/validate.js'
@@ -53,8 +53,17 @@ initialCards.forEach(item => {
 
 //открытие и закрытие попапа добавления нового фото
 popupAddOpenButton.addEventListener('click', () => {
+  nameInput.value = '';
+  linkInput.value = '';
   openPopup(popupAdd);
+  disableSubmitButton(settings, popupAddSubmitButton);
 });
+
+//функция установки неактивного класса кнопки
+function disableSubmitButton(settings, popupAddSubmitButton){
+    popupAddSubmitButton.disabled = true;
+    popupAddSubmitButton.classList.add(settings.inactiveButtonClass);
+}
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
