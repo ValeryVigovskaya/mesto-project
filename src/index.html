@@ -13,11 +13,19 @@
       </header>
       <main>
         <section class="profile">
-          <img
+          <div class="profile__avatar-container">
+             <img
             src="<%=require('./images/avatar.jpg')%>"
             alt="пример аватарки пользователя"
             class="profile__avatar"
           />
+          <button
+            type="button"
+            class="profile__avatar-hover"
+            aria-label="edit_avatar"
+          ></button>
+          </div>
+
           <div class="profile__info">
             <h1 class="profile__username">Жак-Ив Кусто</h1>
             <button
@@ -143,6 +151,33 @@
         </figure>
       </div>
     </div>
+    <div class="popup" id="popup__avatar">
+      <div class="popup__container">
+        <form name="edit" class="popup__form" method="post" novalidate>
+          <button
+            type="button"
+            class="popup__toggle-image popup__toggle-image_place"
+            aria-label="closed_button"
+          ></button>
+          <h2 class="popup__heading">Обновить аватар</h2>
+          <fieldset class="popup__input">
+            <input
+              class="popup__item"
+              type="url"
+              id="avatar"
+              name="avatar"
+              placeholder="Ссылка на аватарку"
+              value=""
+              required
+            />
+            <span class="popup__item-error avatar-error"></span>
+          </fieldset>
+          <button type="submit" class="popup__button" aria-label="save_button">
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
     <template id="element-template">
       <li class="element">
         <button
@@ -153,11 +188,14 @@
         <img src="" alt="дом в горах" class="element__image" />
         <div class="element__group">
           <h2 class="element__caption"></h2>
-          <button
+          <div class="element__like-container">
+            <button
             type="button"
             class="element__like"
             aria-label="like_button"
           ></button>
+          <p class="element__amount-likes"></p>
+          </div>
         </div>
       </li>
     </template>

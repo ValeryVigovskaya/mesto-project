@@ -1,35 +1,67 @@
-import {popupImg, imgInsert, nameInsert, elementTemplate} from './variables.js'
-import {openPopup} from './modal.js'  // импортировали функции, которые используются
+import { popupImg, imgInsert, nameInsert, elementTemplate } from './variables.js'
+import { openPopup } from './modal.js'  // импортировали функции, которые используются
+import { deleteLikeCard, putLikeCard, deleteCard } from './api.js'
 
-function createElement(link, name) {
+//переписываю функцию с полученными из запросов данными
+function createElement(card, user) { //все значения будут записываться в новую переменную card, user использую для получения id пользователя
   const elementsClone = elementTemplate.querySelector('.element').cloneNode(true); //клонируем блок
-  const elementsCloneDeleteButton = elementsClone.querySelector('.element__delete');  //добавили взаимодействие на кнопку удаления картинок
+  const elementsCloneDeleteButton = elementsClone.querySelector('.element__delete');///добавили взаимодействие на кнопку удаления картинок
+  elementsClone.querySelector('.element__image').src = card.link;
+  elementsClone.querySelector('.element__image').alt = card.name;
+  elementsClone.querySelector('.element__caption').textContent = card.name;
+  const like = elementsClone.querySelector('.element__like');
+  const likeAmout = elementsClone.querySelector('.element__amount-likes');
+  likeAmout.textContent = card.likes.length; //записываем длину массива лайков
 
-  elementsClone.querySelector('.element__image').src = link;
-  elementsClone.querySelector('.element__image').alt = name;
-  elementsClone.querySelector('.element__caption').textContent = name;
-  elementsClone.querySelector('.element__like').addEventListener('click', function (evt) { //добавили изменение цвета лайка при клике
-    evt.target.classList.toggle('element__like_active');
-  });
+  like.addEventListener('click', function (evt) { //добавили изменение цвета лайка при клике
+    if (!evt.target.classList.contains('element__like_active')) {//проверяю есть ли активный класс
+      putLikeCard(card._id)
+        .then((data) => {
+          evt.target.classList.toggle('element__like_active')
+          likeAmout.textContent = data.likes.length;
+        })
+        .catch((err) => {
+          console.log(err); // выводим ошибку в консоль, если запрос неуспешный
+        });
+    } else {
+      deleteLikeCard(card._id)
+        .then((data) => {
+          evt.target.classList.remove('element__like_active')
+          likeAmout.textContent = data.likes.length;
+        })
+        .catch((err) => {
+          console.log(err); // выводим ошибку в консоль, если запрос неуспешный
+        });
+    }
+  })
   elementsClone.querySelector('.element__image').addEventListener('click', function (evt) {
-    createNewPopupImage(link, name)
+    createNewPopupImage(card); //вызов функции попапа с картинкой
     evt.target.classList.toggle('.element__image');
   });
-  elementsCloneDeleteButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    elementsClone.remove();
-  });
 
+  if (user.id !== card.owner._id) {   //добавила условие, если айди совпадают у карточки и юзера, то кнопка удаления активна
+    elementsCloneDeleteButton.classList.add('element__delete_inactive');
+  }
+  elementsCloneDeleteButton.addEventListener('click', (e) => {//вызвали функцию запроса удаления карточки
+    deleteCard(card._id)
+      .then(() => {
+        e.stopPropagation();
+        elementsClone.remove();
+      })
+      .catch((err) => {
+        console.log(err); // выводим ошибку в консоль, если запрос неуспешный
+      });
+  });
   return elementsClone;
 };
 
 //функция открытия карточки
-function createNewPopupImage(link, name) {
+function createNewPopupImage(card) {
   openPopup(popupImg);
-  imgInsert.src = link;
-  imgInsert.alt = name;
-  nameInsert.textContent = name;
+  imgInsert.src = card.link;
+  imgInsert.alt = card.name;
+  nameInsert.textContent = card.name;
 };
 
-export {createElement}
+export { createElement }
 
