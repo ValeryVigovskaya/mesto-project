@@ -1,6 +1,5 @@
 import {
-  popupEdit, popupAdd, textInput, jobInput, username, popupAvatarSubmitButton,
-  popupEditSaveButton, popupAddSubmitButton, popupEditAvatar, avatarInput, avatar,
+  popupEdit, popupAdd, textInput, jobInput, username, popupEditAvatar, avatarInput, avatar,
   description, elementsList, nameInput, linkInput, userSelf
 } from './variables.js'
 import { createElement } from './card.js'
@@ -9,70 +8,79 @@ import { patchEditProfile, postNewCard, patchAvatarEdit } from './api.js'
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function submitEditProfileForm(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  renderLoading(true, popupEditSaveButton);
-  // Получите значение полей jobInput и nameInput из свойства value
-  patchEditProfile(textInput.value, jobInput.value)
-    .then((res) => {
-      username.textContent = res.name;
-      description.textContent = res.about;
-      evt.target.reset();
-      closePopup(popupEdit);
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль, если запрос неуспешный
-    })
-    .finally(() => {
-      renderLoading(false, popupEditSaveButton);
-    });
-  // Вставьте новые значения с помощью textContent
-
-}
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
-function submitCardForm(evt) {
-  evt.preventDefault();
-  renderLoading(true, popupAddSubmitButton);
-  postNewCard(nameInput.value, linkInput.value)
-    .then((card) => {
-      closePopup(popupAdd);
-      elementsList.prepend(createElement(card, userSelf));
-    })
-    .catch((err) => {
-      console.log(err); // выводим ошибку в консоль, если запрос неуспешный
-    })
-    .finally(() => {
-      renderLoading(false, popupAddSubmitButton);
-    });
-  evt.target.reset();
-
-}
-
-//функция изменения кнопки сохранить
-function renderLoading(isLoading, popupButton) {
-  if (isLoading) {
-    popupButton.textContent = 'Сохранение...';
-  } else {
-    popupButton.textContent = 'Сохранить' || 'Создать';
+  function makeRequest() {
+    return patchEditProfile(textInput.value, jobInput.value)
+      .then((res) => {
+        username.textContent = res.name;
+        description.textContent = res.about;
+        closePopup(popupEdit);
+      })
   }
+  handleSubmit(makeRequest, evt);
+}
+// Обработчик «отправки» формы карточки
+function submitCardForm(evt) {
+  function makeRequest() {
+    return postNewCard(nameInput.value, linkInput.value)
+      .then((card) => {
+        closePopup(popupAdd);
+        elementsList.prepend(createElement(card, userSelf));
+      })
+  }
+  handleSubmit(makeRequest, evt);
 }
 
 //функция редактирования аватарки
 function editAvatarForm(evt) {
-  evt.preventDefault();// Эта строчка отменяет стандартную отправку формы.
-  renderLoading(true, popupAvatarSubmitButton);
-  patchAvatarEdit(avatarInput.value)
-    .then((res) => {
-      avatar.src = res.avatar;
+  function makeRequest() {
+    return patchAvatarEdit(avatarInput.value)
+      .then((res) => {
+        avatar.src = res.avatar;
+        evt.target.reset();
+        closePopup(popupEditAvatar);
+      })
+  }
+  handleSubmit(makeRequest, evt);
+}
+
+//функция изменения кнопки сохранить
+function renderLoading(isLoading, popupButton, buttonText = 'Сохранить', loadingText = 'Сохранение...') {
+  if (isLoading) {
+    popupButton.textContent = loadingText;
+  } else {
+    popupButton.textContent = buttonText;
+  }
+}
+
+//универсальная функция с функцией запроса, объекта события и текста сохранения
+function handleSubmit(request, evt, loadingText = "Сохранение...") {
+  evt.preventDefault();
+  const submitButton = evt.submitter;
+  const initialText = submitButton.textContent;
+  renderLoading(true, submitButton, initialText, loadingText);
+  request()
+    .then(() => {
       evt.target.reset();
-      closePopup(popupEditAvatar);
     })
     .catch((err) => {
-      console.log(err); // выводим ошибку в консоль, если запрос неуспешный
+      console.error(`Ошибка: ${err}`);
     })
     .finally(() => {
-      renderLoading(false, popupAvatarSubmitButton);
+      renderLoading(false, submitButton, initialText);
     });
 }
 
-export { submitEditProfileForm, submitCardForm, editAvatarForm }
+
+function checkResponse(res) {      //функция проверки ответа сервера
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Ошибка: ${res.status}`);
+}
+
+function request(url, options) {
+  // принимает два аргумента: урл и объект опций, как и `fetch`
+  return fetch(url, options).then(checkResponse)
+}
+
+export { submitEditProfileForm, submitCardForm, editAvatarForm, request }

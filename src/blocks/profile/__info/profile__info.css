@@ -3,7 +3,7 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   padding-left: 30px;
   padding-right: 244px;
@@ -11,14 +11,25 @@
 
 @media screen and (max-width: 1274px) {
   .profile__info {
+    max-width: 40%;
     padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 1109px) {
+  .profile__info {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 737px) {
+  .profile__info {
+    justify-content: center;
   }
 }
 
 @media screen and (max-width: 607px) {
   .profile__info {
-    max-width: 70%;
-    margin: 0 auto;
     padding-top: 26px;
     padding-left: 0;
     padding-bottom: 36px;

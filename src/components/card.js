@@ -13,6 +13,13 @@ function createElement(card, user) { //все значения будут зап
   const likeAmout = elementsClone.querySelector('.element__amount-likes');
   likeAmout.textContent = card.likes.length; //записываем длину массива лайков
 
+  //перебераю массив лайков и при этом сравниваю айди лайка и айди пользователя лайкнувшего
+  card.likes.forEach(() => {
+    if(card.likes._id === user._id){
+      like.classList.add('element__like_active'); //добавила активный класс, так как пользователь уже лайкнул
+    }
+  })
+
   like.addEventListener('click', function (evt) { //добавили изменение цвета лайка при клике
     if (!evt.target.classList.contains('element__like_active')) {//проверяю есть ли активный класс
       putLikeCard(card._id)
