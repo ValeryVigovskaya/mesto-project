@@ -1,5 +1,6 @@
 import {
-  popupEdit, popupAdd, textInput, jobInput, username, popupEditAvatar, avatarInput, avatar,
+  popupEdit, popupAdd, textInput, jobInput,
+  username, popupEditAvatar, avatarInput, avatar,
   description, elementsList, nameInput, linkInput, userSelf
 } from './variables.js'
 import { createElement } from './card.js'
