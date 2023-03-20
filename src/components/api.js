@@ -1,5 +1,29 @@
 import { request } from './utils.js'
 
+class Api {
+  constructor(options) {
+    this._baseUrl = options.baseUrl,
+    this._headers = options.headers
+  }
+
+  getInitialCards() {
+    return request('https://nomoreparties.co/v1/plus-cohort-20/cards', {
+      headers: this._headers
+    })
+  }
+
+  // другие методы работы с API
+}
+
+const api = new Api({
+  baseUrl: 'https://nomoreparties.co/v1/cohort-42',
+  headers: {
+    authorization: 'c56e30dc-2883-4270-a59e-b2f7bae969c6',
+    'Content-Type': 'application/json'
+  }
+});
+
+/*
 const config = {
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20/users/me',
   headers: {
@@ -79,3 +103,4 @@ export {
   getUserInfo, getInitialCards, patchEditProfile, postNewCard,
   putLikeCard, deleteLikeCard, patchAvatarEdit, deleteCard
 }
+*/
