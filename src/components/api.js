@@ -7,19 +7,19 @@ class Api {
   }
 
   _getUserInfo(){
-    return request(`${this._baseUrl}`, {
+    return request(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
   }
 
   getInitialCards() {
-    return request('https://nomoreparties.co/v1/plus-cohort-20/cards', {
+    return request(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
   }
 
   patchEditProfile(username, description){
-    return request(`${this._baseUrl}`, {
+    return request(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers:  this._headers,
       body: JSON.stringify({
@@ -71,15 +71,12 @@ class Api {
   }
 
 
-
-
-  // другие методы работы с API
 }
 
 const api = new Api({
-  baseUrl: 'https://nomoreparties.co/v1/cohort-42',
+  baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
   headers: {
-    authorization: 'c56e30dc-2883-4270-a59e-b2f7bae969c6',
+    authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
     'Content-Type': 'application/json'
   }
 });
@@ -165,3 +162,7 @@ export {
   putLikeCard, deleteLikeCard, patchAvatarEdit, deleteCard
 }
 */
+
+export {
+  api,
+}

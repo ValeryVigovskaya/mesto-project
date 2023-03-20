@@ -2,6 +2,9 @@ import { popupImg, imgInsert, nameInsert, elementTemplate } from './variables.js
 import { openPopup } from './modal.js'  // импортировали функции, которые используются
 import { deleteLikeCard, putLikeCard, deleteCard } from './api.js'
 
+import{ api } from './api.js'
+
+/*
 //переписываю функцию с полученными из запросов данными
 function createElement(card, user) { //все значения будут записываться в новую переменную card, user использую для получения id пользователя
   const elementsClone = elementTemplate.querySelector('.element').cloneNode(true); //клонируем блок
@@ -71,4 +74,59 @@ function createNewPopupImage(card) {
 };
 
 export { createElement }
+*/
+
+
+
+class Card {
+  constructor(name, link, like, likeAmout, elementTemplate, _id) {
+    this._name = name;
+    this._link = link;
+    this._like = like;
+    this._likeAmout = likeAmout;
+    this._elementTemplate = elementTemplate;
+    this._id = _id;
+  }
+
+  showSomething() {
+   return console.log(api._getUserInfo);
+
+  }
+  _createElement() {
+    const elementsClone = this._elementTemplate.querySelector('.element').cloneNode(true)
+    return elementsClone;
+}
+  generate() {
+    this._element = this._createElement();
+    this._element.querySelector('.element__image').src = this._link;
+    this._element.querySelector('.element__image').alt = this._name;
+    this._element.querySelector('.element__caption').textContent = this._name;
+
+    return this._element;
+  }
+    _handleLike() {
+      if (!this._element.querySelector('.element__like').classList.contains('element__like_active')) {
+        this._element.querySelector('.element__like').classList.toggle('element__like_active');
+      } else {
+        this._element.querySelector('.element__like').classList.remove('element__like_active');
+    }
+  }
+
+
+
+  _setEventListeners() {
+    this._element.querySelector('.element__like').addEventListener('click', () => {
+      this._handleLike();
+    })
+  }
+
+
+}
+
+
+
+
+
+
+
 
