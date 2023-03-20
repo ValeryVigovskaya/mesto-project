@@ -19,7 +19,7 @@ import { openPopup, closePopup } from '../src/components/modal.js'
 
 import { submitEditProfileForm, submitCardForm, editAvatarForm } from '../src/components/utils.js'
 
-import { createElement } from '../src/components/card.js'
+import { createElement } from './components/Card.js'
 
 import { getUserInfo, getInitialCards } from '../src/components/api.js'
 
@@ -40,7 +40,7 @@ Promise.all([getUserInfo(), getInitialCards()])
     console.log(err); // выводим ошибку в консоль, если запрос неуспешный
   });
 
-//перебор массива попапов для закрытия по крестику и оверлею
+/*//перебор массива попапов для закрытия по крестику и оверлею
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('popup_opened')) {
@@ -50,7 +50,7 @@ popups.forEach((popup) => {
       closePopup(popup)
     }
   })
-})
+})*/
 
 //открытие и закрытие попапа редактирования
 popupEditOpenButton.addEventListener('click', function () {

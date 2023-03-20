@@ -1,4 +1,4 @@
-//функция закрытия попапа по escape
+/*//функция закрытия попапа по escape
 function closeByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened')
@@ -20,4 +20,4 @@ function closePopup(popup) {
 }
 
 
-export { openPopup, closePopup }
+export { openPopup, closePopup }*/

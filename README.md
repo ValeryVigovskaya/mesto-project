@@ -43,3 +43,4 @@
 * Созданы методы: слушателей, счетчика лайков. Отдельно создана функция handleCardClick - открытие popup картинка / Commit_6_6 build card class Виговская Валерия/
 * Создан класс FormValidator со всеми приватными методами / Commit_6_7 build FormValidator class Вдовина Дарья/
 * Создан класс Section / Commit_6_8 build Section class Кирьянов Игорь/
+* Создан класс Popup / Commit_6_9 build Popup class Виговская Валерия/
