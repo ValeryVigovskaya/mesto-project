@@ -31,6 +31,9 @@
 </div>
 
 
-* Первый проверочный коммит Игорь _1
-ляяляляляляля
-это даша
+# Участники совместного програмирования
+* Виговская Валерия e-mail: vigovskaya.lera@yandex.ru
+* Вдовина Дарья e-mail: vdovinadn@gmail.com GitHub: https://github.com/Dvdovina
+* Кирьянов Игорь e-mail: jaki.igor@yandex.ru GitHub https://github.com/Jaki1965
+
+* Установлены данные участников совместного програмирования / Commit_6_2 Виговская Валерия /
