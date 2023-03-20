@@ -65,18 +65,18 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 
 //открытие и закрытие попапа добавления нового фото
-popupAddOpenButton.addEventListener('click', () => {
+/*popupAddOpenButton.addEventListener('click', () => {
   nameInput.value = '';
   linkInput.value = '';
   openPopup(popupAdd);
   disableSubmitButton(settings, popupAddSubmitButton);
-});
+});*/
 
 //функция установки неактивного класса кнопки
-function disableSubmitButton(settings, popupAddSubmitButton) {
+/*function disableSubmitButton(settings, popupAddSubmitButton) {
   popupAddSubmitButton.disabled = true;
   popupAddSubmitButton.classList.add(settings.inactiveButtonClass);
-}
+}*/
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»

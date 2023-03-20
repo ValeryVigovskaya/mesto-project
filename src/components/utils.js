@@ -53,6 +53,11 @@ function renderLoading(isLoading, popupButton, buttonText = 'Сохранить'
   }
 }
 
+function disableSubmitButton(settings, popupAddSubmitButton) {
+  popupAddSubmitButton.disabled = true;
+  popupAddSubmitButton.classList.add(settings.inactiveButtonClass);
+}
+
 //универсальная функция с функцией запроса, объекта события и текста сохранения
 function handleSubmit(request, evt, loadingText = "Сохранение...") {
   evt.preventDefault();

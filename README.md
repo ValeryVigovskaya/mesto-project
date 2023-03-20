@@ -44,3 +44,4 @@
 * Создан класс FormValidator со всеми приватными методами / Commit_6_7 build FormValidator class Вдовина Дарья/
 * Создан класс Section / Commit_6_8 build Section class Кирьянов Игорь/
 * Создан класс Popup / Commit_6_9 build Popup class Виговская Валерия/
+* Создан класс PopupWithImage / Commit_6_10 build PopupWithImage class Вдовина Дарья/
