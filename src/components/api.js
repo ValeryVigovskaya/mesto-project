@@ -6,11 +6,72 @@ class Api {
     this._headers = options.headers
   }
 
+  _getUserInfo(){
+    return request(`${this._baseUrl}`, {
+      headers: this._headers
+    })
+  }
+
   getInitialCards() {
     return request('https://nomoreparties.co/v1/plus-cohort-20/cards', {
       headers: this._headers
     })
   }
+
+  patchEditProfile(username, description){
+    return request(`${this._baseUrl}`, {
+      method: 'PATCH',
+      headers:  this._headers,
+      body: JSON.stringify({
+        name: username,
+        about: description
+      })
+    })
+  }
+
+  postNewCard(name, link){
+    return request(`${this._baseUrl}/cards`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        name: name,
+        link: link,
+      })
+    })
+  }
+
+  putLikeCard(cardId){
+    return request(`${this._baseUrl}/cards/likes/${cardId}`, {
+      method: 'PUT',
+      headers: this._headers,
+    })
+  }
+  deleteLikeCard(cardId){
+    return request(`${this._baseUrl}/cards/likes/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers,
+    })
+  }
+
+  patchAvatarEdit(avatar){
+    return request(`${this._baseUrl}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatar,
+      })
+    })
+  }
+
+  deleteCard(cardId){
+    return request(`${this._baseUrl}/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers,
+    })
+  }
+
+
+
 
   // другие методы работы с API
 }

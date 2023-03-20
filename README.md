@@ -38,3 +38,4 @@
 
 * Установлены данные участников совместного програмирования / Commit_6_2 Виговская Валерия /
 * Промежуточный коммит / Commit_6_3 build Api  Виговская Валерия/
+* Созданы методы класса api _getUserInfo, getInitialCards, patchEditProfile,  postNewCard, putLikeCard, deleteLikeCard, patchAvatarEdit, deleteCard / Commit_6_4 build api class Вдовина Дарья/
