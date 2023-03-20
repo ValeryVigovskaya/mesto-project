@@ -72,8 +72,7 @@ class Api {
 
 
 }
-
-const api = new Api({
+export const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
   headers: {
     authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
@@ -162,7 +161,3 @@ export {
   putLikeCard, deleteLikeCard, patchAvatarEdit, deleteCard
 }
 */
-
-export {
-  api,
-}

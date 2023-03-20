@@ -40,3 +40,4 @@
 * Промежуточный коммит / Commit_6_3 build Api  Виговская Валерия/
 * Созданы методы класса api _getUserInfo, getInitialCards, patchEditProfile,  postNewCard, putLikeCard, deleteLikeCard, patchAvatarEdit, deleteCard / Commit_6_4 build api class Вдовина Дарья/
 * Начали создавать класс Card с методами: клонирования template, обработки лайка, слушателя лайка / Commit_6_5 build card class Кирьянов Игорь/
+* Созданы методы: слушателей, счетчика лайков. Отдельно создана функция handleCardClick - открытие popup картинка / Commit_6_6 build card class Виговская Валерия/
