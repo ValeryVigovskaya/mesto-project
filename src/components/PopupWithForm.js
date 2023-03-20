@@ -1,5 +1,6 @@
 /*   */
-import {submitCardForm, submitEditProfileForm, handleSubmit, editAvatarForm} from "./utils.js"
+import { submitCardForm, submitEditProfileForm, handleSubmit, editAvatarForm } from "./utils.js"
+import { formEditProfile, formElementAdd, formAvatartEdit } from './variables.js'
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, submitCardForm, submitEditProfileForm, editAvatarForm, formsInputs) {
@@ -11,15 +12,24 @@ export default class PopupWithForm extends Popup {
     this.formsInputs = document.querySelectorAll('.popup__item');
   }
 
-  _getInputValues(){
+  _getInputValues() {
     this._inputValues = {}
     this.formsInputs.forEach((input) => {
-      this._inputValues[input.name] = input.value ;
+      this._inputValues[input.name] = input.value;
     })
-    return  this._inputValues;
+    return this._inputValues;
   }
 
+  setEventListeners() {
+    super.setEventListeners();
+    formEditProfile.addEventListener('submit', this.submitEditProfileForm);
+    formElementAdd.addEventListener('submit', this.submitCardForm);
+    formAvatartEdit.addEventListener('submit', this.editAvatarForm);
 
+  }
 
+  closePopup(popup) {
+    super.closePopup();
+    evt.target.reset();
+  }
 }
-

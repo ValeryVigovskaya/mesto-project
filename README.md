@@ -46,3 +46,4 @@
 * Создан класс Popup / Commit_6_9 build Popup class Виговская Валерия/
 * Создан класс PopupWithImage / Commit_6_10 build PopupWithImage class Вдовина Дарья/
 * Создан, но до конца не реализован класс PopupWithForm / Commit_6_11 build PopupWithForm class Кирьянов Игорь/
+* Реализован класс PopupWithForm / Commit_6_12 build PopupWithForm class Вдовина Дарья/
