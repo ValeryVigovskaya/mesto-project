@@ -8,7 +8,7 @@ import { closePopup } from './modal.js'
 import { patchEditProfile, postNewCard, patchAvatarEdit } from './api.js'
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function submitEditProfileForm(evt) {
+export const submitEditProfileForm = (evt) => {
   function makeRequest() {
     return patchEditProfile(textInput.value, jobInput.value)
       .then((res) => {
@@ -20,7 +20,7 @@ function submitEditProfileForm(evt) {
   handleSubmit(makeRequest, evt);
 }
 // Обработчик «отправки» формы карточки
-function submitCardForm(evt) {
+export const submitCardForm = (evt) => {
   function makeRequest() {
     return postNewCard(nameInput.value, linkInput.value)
       .then((card) => {
@@ -32,7 +32,7 @@ function submitCardForm(evt) {
 }
 
 //функция редактирования аватарки
-function editAvatarForm(evt) {
+export const editAvatarForm = (evt) => {
   function makeRequest() {
     return patchAvatarEdit(avatarInput.value)
       .then((res) => {
@@ -89,4 +89,4 @@ function request(url, options) {
   return fetch(url, options).then(checkResponse)
 }
 
-export { submitEditProfileForm, submitCardForm, editAvatarForm, request }
+export { request, handleSubmit }
