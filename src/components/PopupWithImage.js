@@ -7,7 +7,7 @@ export default class PopupWithImage extends Popup {
     this._popup = popupSelector;
   }
 
-  openPopup(popupAdd) {
+  openPopup() {
     nameInput.value = '';
     linkInput.value = '';
     disableSubmitButton(settings, popupAddSubmitButton);

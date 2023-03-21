@@ -31,6 +31,7 @@ import Popup from './components/Popup.js'
 import PopupWithForm from './components/PopupWithForm.js'
 import PopupWithImage from './components/PopupWithImage.js'
 import Card from './components/card.js'
+import { handleCardClick } from './components/card.js'
 import {
   settings, popups, popupEditOpenButton, popupEdit,
   popupEditSaveButton, popupAddOpenButton, popupAdd,
@@ -44,17 +45,63 @@ import {
 
 
 
-// const api = new Api({
-//     baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
-//     headers: {
-//       authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
-//       'Content-Type': 'application/json'
-//     }
-//   });
+const api = new Api({
+  baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
+  headers: {
+    authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
+    'Content-Type': 'application/json'
+  }
+});
+
+
+Promise.all([api._getUserInfo(), api.getInitialCards()])
+  .then(([user]) => {
+    username.textContent = user.name;
+    description.textContent = user.about;
+    userSelf.id = user._id;
+    avatar.src = user.avatar;
+    //методом перебора массива добавляем в разметку карточки
+
+  })
+  .catch((err) => {
+    console.log(err); // выводим ошибку в консоль, если запрос неуспешный
+  });
+
+const cardList = new Section({
+  renderer: (card, user) => {
+    const cardNew = new Card(card,{handleCardClick: (card) => {popupWithImage.openPopup(card)},
+  },
+  {_handleAddLike:(card)=>{_handleAddLike(card, cardNew)}},
+
+  
+
+
+
+    )
+
+    }
+  })
 
 
 
 
+
+// const cardList = new Section({
+//   data: messageList,
+//   renderer: (messageItem) => {
+//     const message = messageItem.isOwner
+//       ? new UserMessage(messageItem, '.message-template_type_user')
+//       : new DefaultMessage(messageItem, '.message-template_type_default');
+
+//     const messageElement = message.generate();
+
+//     cardList.setItem(messageElement);
+//     },
+//   },
+//   cardListSection
+// );
+
+// cardList.renderItems();
 
 //промисом получили данные с сервера
 // Promise.all([getUserInfo(), getInitialCards()])

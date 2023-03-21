@@ -20,7 +20,7 @@ export default class Section {
     this.clear();
 
     this._renderedItems.forEach((item) => {
-      this.renderer(item);
+      this._renderer(item);
     });
   }
 }
