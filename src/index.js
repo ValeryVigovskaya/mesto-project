@@ -42,46 +42,90 @@ import {
   popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
   formAvatartEdit, userSelf
 } from './components/variables.js'
+import { data } from 'autoprefixer';
 
 
 
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
   headers: {
-    authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
+  authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
     'Content-Type': 'application/json'
   }
-});
+ });
 
 
 Promise.all([api._getUserInfo(), api.getInitialCards()])
-  .then(([user]) => {
+  .then(([user, cards]) => {
     username.textContent = user.name;
     description.textContent = user.about;
     userSelf.id = user._id;
     avatar.src = user.avatar;
-    //методом перебора массива добавляем в разметку карточки
 
-  })
+    const section = new Section ({
+      item: cards,
+      renderer: (item) => {
+        const element = createElement(item);
+        section.setItem(element);
+      }
+    },
+    elementsList);
+    section.renderItems();
+    })
   .catch((err) => {
     console.log(err); // выводим ошибку в консоль, если запрос неуспешный
   });
 
-const cardList = new Section({
-  renderer: (card, user) => {
-    const cardNew = new Card(card,{handleCardClick: (card) => {popupWithImage.openPopup(card)},
-  },
-  {_handleAddLike:(card)=>{_handleAddLike(card, cardNew)}},
-
-  
-
-
-
-    )
-
-    }
+const createElement = (card) => {
+  const cardItem = new Card(card, {
+    handleCardClick: card => popupImg.openPopup(card),
+    _handleAddLike: () => _handleAddLike(card, data),
   })
+  return cardItem;
+}
 
+
+
+
+// const cardList = new Section({
+
+//   renderer: (card, user) => {
+//     const cardNew = new Card(card,{handleCardClick: (card) => {popupWithImage.openPopup(card)},
+//   },
+//   {_handleAddLike:(card)=>{_handleAddLike(card, cardNew)}},
+
+
+// const createNewCard = data => {
+//   const card = new Card(data, userInfo.userId, cardTemplateSelector, {
+//     handleCardClick: data => popupImage.open(data),
+//     handleCardDelete: () => {
+//       currentCard = card;
+//       popupWithConfirm.open(data._id);
+//     },
+//     handleLikeClick: () => handleLikeClick(card, data),
+//     cardImageloader: () => cardImageloader(card, cardImageErrorClass)
+//   });
+//   return card;
+
+
+
+//     )
+
+//     }
+//   })
+
+
+  // set cards info
+//   section = new Section({
+//     items: cardsInfo,
+//     renderer: (item) => {
+//       const cardElement = createCard(item);
+//       section.addItem(cardElement);
+//     }
+//   },
+//   constants.cardsContainerSelector
+// );
+// section.renderItems();
 
 
 

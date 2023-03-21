@@ -150,7 +150,6 @@ export default class Card {
 
 
 export function handleCardClick(card) {
-  openPopup(popupImg);
   imgInsert.src = card.link;
   imgInsert.alt = card.name;
   nameInsert.textContent = card.name;

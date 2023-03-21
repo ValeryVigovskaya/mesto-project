@@ -47,7 +47,8 @@
 * Создан класс PopupWithImage / Commit_6_10 build PopupWithImage class Вдовина Дарья/
 * Создан, но до конца не реализован класс PopupWithForm / Commit_6_11 build PopupWithForm class Кирьянов Игорь/
 * Реализован класс PopupWithForm / Commit_6_12 build PopupWithForm class Вдовина Дарья/
-
+* Реализован класс PopupWithForm / Commit_6_13 build UserInfo class Виговская Валерия/
 
 * Промежуточный коммит. Сделаны экспорты в index.js Пока не работает / Commit_6_14 imports index.js Кирьянов Игорь/
 * Прмежуточный коммит. Препринята попытка прописать создание карточки в index.js/ Commit_6_15 build new Section Вдовина Дарья/
+* Прмежуточный коммит. Еще одна поытка прописать создание карточки в index.js/ Commit_6_16 build new Section Виговская Валерия/

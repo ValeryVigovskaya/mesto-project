@@ -1,11 +1,11 @@
 /* Отвечает за отрисовку элементов на странице */
-
+import {elementsList} from '../components/variables.js'
 export default class Section {
-  constructor({ items, renderer }, containerSelector) {
-    this._renderedItems = items;
+  constructor({ item, renderer }, elementsList) {
+    this._renderedItems = item;
     this._renderer = renderer;
 
-    this._container = document.querySelector(containerSelector);
+    this._container = elementsList;
   }
 
   setItem(element) {
