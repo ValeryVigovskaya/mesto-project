@@ -1,6 +1,6 @@
 import { request } from './utils.js'
 
-class Api {
+export default class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl,
     this._headers = options.headers
@@ -70,15 +70,15 @@ class Api {
     })
   }
 
-
 }
-export const api = new Api({
-  baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
-  headers: {
-    authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
-    'Content-Type': 'application/json'
-  }
-});
+
+// export const api = new Api({
+//   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
+//   headers: {
+//     authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
+//     'Content-Type': 'application/json'
+//   }
+// });
 
 /*
 const config = {

@@ -1,6 +1,6 @@
 import { popupImg, imgInsert, nameInsert, elementTemplate } from './variables.js'
-import { openPopup } from './modal.js'  // импортировали функции, которые используются
-import { deleteLikeCard, putLikeCard, deleteCard } from './api.js'
+//import { openPopup } from './modal.js'  // импортировали функции, которые используются
+//import { deleteLikeCard, putLikeCard, deleteCard } from './api.js'
 
 import {api} from './api.js'
 
@@ -78,7 +78,7 @@ export { createElement }
 
 
 
-class Card {
+export default class Card {
   constructor(elementTemplate, _id, user, card, handleCardClick) {
     this._name = card.name;
     this._link = card.link;

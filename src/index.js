@@ -1,44 +1,76 @@
 import './pages/index.css';
 
+// import {
+//   settings,
+//   popups, popupEditOpenButton, popupEdit,
+//   popupAddOpenButton, popupAdd,
+//   elementsList, formEditProfile, textInput,
+//   jobInput, username, description,
+//   formElementAdd, popupAddSubmitButton, nameInput,
+//   linkInput, popupEditAvatar, popupEditAvatarButton,
+//   formAvatartEdit, avatarInput, avatar, userSelf
+// } from '../src/components/variables.js'
+
+// import { enableValidation } from '../src/components/validate.js'
+
+// enableValidation(settings);
+
+// import { openPopup, closePopup } from '../src/components/modal.js'
+
+// import { submitEditProfileForm, submitCardForm, editAvatarForm } from '../src/components/utils.js'
+
+// import { createElement } from './components/Card.js'
+
+// import { getUserInfo, getInitialCards } from '../src/components/api.js'
+
+import Section from './components/Section.js'
+//import {api} from './components/api.js'
+import Api from './components/api.js'
+import FormValidator from './components/FormValidator.js'
+import Popup from './components/Popup.js'
+import PopupWithForm from './components/PopupWithForm.js'
+import PopupWithImage from './components/PopupWithImage.js'
+import Card from './components/card.js'
 import {
-  settings,
-  popups, popupEditOpenButton, popupEdit,
-  popupAddOpenButton, popupAdd,
+  settings, popups, popupEditOpenButton, popupEdit,
+  popupEditSaveButton, popupAddOpenButton, popupAdd,
+  popupImg,
   elementsList, formEditProfile, textInput,
-  jobInput, username, description,
-  formElementAdd, popupAddSubmitButton, nameInput,
-  linkInput, popupEditAvatar, popupEditAvatarButton,
-  formAvatartEdit, avatarInput, avatar, userSelf
-} from '../src/components/variables.js'
+  jobInput, username, description, imgInsert, nameInsert,
+  formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
+  popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
+  formAvatartEdit, userSelf
+} from './components/variables.js'
 
-import { enableValidation } from '../src/components/validate.js'
 
-enableValidation(settings);
 
-import { openPopup, closePopup } from '../src/components/modal.js'
+// const api = new Api({
+//     baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
+//     headers: {
+//       authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
+//       'Content-Type': 'application/json'
+//     }
+//   });
 
-import { submitEditProfileForm, submitCardForm, editAvatarForm } from '../src/components/utils.js'
 
-import { createElement } from './components/Card.js'
 
-import { getUserInfo, getInitialCards } from '../src/components/api.js'
 
 
 //промисом получили данные с сервера
-Promise.all([getUserInfo(), getInitialCards()])
-  .then(([user, cards]) => {
-    username.textContent = user.name;
-    description.textContent = user.about;
-    userSelf.id = user._id;
-    avatar.src = user.avatar;
-    //методом перебора массива добавляем в разметку карточки
-    cards.forEach((card) => {
-      elementsList.append(createElement(card, userSelf))
-    });
-  })
-  .catch((err) => {
-    console.log(err); // выводим ошибку в консоль, если запрос неуспешный
-  });
+// Promise.all([getUserInfo(), getInitialCards()])
+//   .then(([user, cards]) => {
+//     username.textContent = user.name;
+//     description.textContent = user.about;
+//     userSelf.id = user._id;
+//     avatar.src = user.avatar;
+//     //методом перебора массива добавляем в разметку карточки
+//     cards.forEach((card) => {
+//       elementsList.append(createElement(card, userSelf))
+//     });
+//   })
+//   .catch((err) => {
+//     console.log(err); // выводим ошибку в консоль, если запрос неуспешный
+//   });
 
 /*//перебор массива попапов для закрытия по крестику и оверлею
 popups.forEach((popup) => {
@@ -53,15 +85,15 @@ popups.forEach((popup) => {
 })*/
 
 //открытие и закрытие попапа редактирования
-popupEditOpenButton.addEventListener('click', function () {
-  openPopup(popupEdit);
-  textInput.value = username.textContent;
-  jobInput.value = description.textContent;
-})
+// popupEditOpenButton.addEventListener('click', function () {
+//   openPopup(popupEdit);
+//   textInput.value = username.textContent;
+//   jobInput.value = description.textContent;
+// })
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formEditProfile.addEventListener('submit', submitEditProfileForm);
+// formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 
 //открытие и закрытие попапа добавления нового фото
@@ -80,13 +112,13 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElementAdd.addEventListener('submit', submitCardForm);
+// formElementAdd.addEventListener('submit', submitCardForm);
 
 //открытие попапа редактирования аватарки
-popupEditAvatarButton.addEventListener('click', () => {
-  openPopup(popupEditAvatar);
-  avatarInput.value = avatar.src;
-})
+// popupEditAvatarButton.addEventListener('click', () => {
+//   openPopup(popupEditAvatar);
+//   avatarInput.value = avatar.src;
+// })
 
-formAvatartEdit.addEventListener('submit', editAvatarForm);
+// formAvatartEdit.addEventListener('submit', editAvatarForm);
 

@@ -3,9 +3,9 @@ import {
   username, popupEditAvatar, avatarInput, avatar,
   description, elementsList, nameInput, linkInput, userSelf
 } from './variables.js'
-import { createElement } from './Card.js'
-import { closePopup } from './modal.js'
-import { patchEditProfile, postNewCard, patchAvatarEdit } from './api.js'
+// import { createElement } from './card.js'
+//import { closePopup } from './modal.js'
+//import { patchEditProfile, postNewCard, patchAvatarEdit } from './api.js'
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 export const submitEditProfileForm = (evt) => {
@@ -89,4 +89,4 @@ function request(url, options) {
   return fetch(url, options).then(checkResponse)
 }
 
-export { request, handleSubmit }
+export { request, handleSubmit, disableSubmitButton }
