@@ -83,47 +83,41 @@ export default class Card {
   constructor(data, user, selector, {handleCardDelete}) {
     this._name = data.name;
     this._cardId = data._id;
-
     this._link = data.link;
-    // console.log(data.link);
+    this._like = data.likes;
+    //console.log(this._like);
+
 
     // this._like = card.like;
-    this._likeAmout = document.querySelector('.element__amount-likes');
-    // console.log(this._deleteButton);
+
+    console.log(this._likeAmout);
 
     this._elementTemplate = selector;
     this._id = data.owner._id;
     this.id = user;
     this._handleCardDelete = handleCardDelete;
-
-    // console.log(data._id); // выводит 30 ID
-    // this._user = '5677928b-be8e-49ee-ae63-e0ec29ade066';
-    // console.log(data.user); // undefined
-    // console.log(data.owner._id); // выводит ID пользователя
     this._card = data.card;
-    // this.handleCardClick = handleCardClick;
-    // console.log(this._elementTemplate);
+
 
   }
   _createElement() {
-    // console.log(elementTemplate);
-    // console.log(this._elementTemplate)
     const elementsClone = document.querySelector(this._elementTemplate).content.querySelector('.element').cloneNode(true);
-    //console.log(this._elementTemplate);
-    //console.log(elementsClone);
     return elementsClone;
   }
   generate() {
     // this._countLikes();
 
-    // this._setEventListeners();
     this._element = this._createElement();
     this._element.querySelector('.element__image').src = this._link;
     this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__caption').textContent = this._name;
     this._element.querySelector('.element__like').classList.toggle('element__like_active');
     this._deleteButton = this._element.querySelector('.element__delete');
-    // this._likeAmout.textContent = data.likes.length;
+    this._likeAmout = this._element.querySelector('.element__amount-likes');
+
+    this._likeAmout.textContent = this._like.length;
+    // console.log(this._likeAmout);
+    // console.log(this._like.length);
     this._setDeleteBtnState()
     this._setEventListeners();
     return this._element;
