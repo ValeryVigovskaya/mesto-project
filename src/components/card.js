@@ -4,6 +4,7 @@ import { popupImg, imgInsert, nameInsert, elementTemplate } from './variables.js
 
 import {api} from './api.js'
 
+
 /*
 //переписываю функцию с полученными из запросов данными
 function createElement(card, user) { //все значения будут записываться в новую переменную card, user использую для получения id пользователя
@@ -76,29 +77,42 @@ function createNewPopupImage(card) {
 export { createElement }
 */
 
-
+// console.log(elementTemplate);
 
 export default class Card {
-  constructor(elementTemplate, _id, user, card, handleCardClick) {
-    this._name = card.name;
-    this._link = card.link;
-    this._like = card.like;
-    this._likeAmout = document.querySelector('.element__amount-likes');
+  constructor(data) {
+    this._name = data.name;
+    this._link = data.link;
+    // console.log(data.link);
+
+    // this._like = card.like;
+    // this._likeAmout = document.querySelector('.element__amount-likes');
     this._deleteButton = document.querySelector('.element__delete');
+    // console.log(this._deleteButton);
+
     this._elementTemplate = elementTemplate;
-    this._id = _id;
-    this._user = user;
-    this._card = card;
-    this.handleCardClick = handleCardClick;
+    this._id = data._id;
+    // console.log(data._id); // выводит 30 ID
+    // this._user = '5677928b-be8e-49ee-ae63-e0ec29ade066';
+    // console.log(data.user); // undefined
+    // console.log(data.owner._id); // выводит ID пользователя
+    this._card = data.card;
+    // this.handleCardClick = handleCardClick;
+    // console.log(this._elementTemplate);
+
   }
   _createElement() {
-    const elementsClone = this._elementTemplate.querySelector('.element').cloneNode(true)
+    // console.log(elementTemplate);
+    // console.log(this._elementTemplate)
+    const elementsClone = this._elementTemplate.cloneNode(true);
+    //console.log(this._elementTemplate);
+    //console.log(elementsClone);
     return elementsClone;
 }
   generate() {
-    this._countLikes();
+    // this._countLikes();
     this._deleteCard();
-    this._setEventListeners();
+    // this._setEventListeners();
     this._element = this._createElement();
     this._element.querySelector('.element__image').src = this._link;
     this._element.querySelector('.element__image').alt = this._name;
@@ -123,9 +137,11 @@ export default class Card {
     }
 
   _deleteCard() {
-    if (user.id !== card.owner._id) {
-      this._deleteButton.classList.add('element__delete_inactive');
-    }
+    // console.log(this._deleteButton);
+
+    // if (data._id !== data.owner._id) {
+    //   this._deleteButton.classList.add('element__delete_inactive');
+    // }
   }
 
   _setEventListeners() {

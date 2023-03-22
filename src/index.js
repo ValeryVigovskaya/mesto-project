@@ -44,7 +44,7 @@ import {
 } from './components/variables.js'
 import { data } from 'autoprefixer';
 
-
+// console.log(elementsList);
 
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
@@ -54,6 +54,7 @@ const api = new Api({
   }
  });
 
+//  console.log(api.getInitialCards());
 
 Promise.all([api._getUserInfo(), api.getInitialCards()])
   .then(([user, cards]) => {
@@ -61,28 +62,28 @@ Promise.all([api._getUserInfo(), api.getInitialCards()])
     description.textContent = user.about;
     userSelf.id = user._id;
     avatar.src = user.avatar;
-
-    const section = new Section ({
-      item: cards,
-      renderer: (item) => {
-        const element = createElement(item);
-        section.setItem(element);
-      }
-    },
-    elementsList);
-    section.renderItems();
-    })
+    // console.log(cards);
+    cards.forEach(item => {
+      const cardNew = new Card(item);
+      //console.log(cardNew);
+      const cardElement = cardNew.generate();
+      // console.log(cardElement);
+      elementsList.append(cardElement);
+    });
+  })
   .catch((err) => {
     console.log(err); // выводим ошибку в консоль, если запрос неуспешный
   });
 
-const createElement = (card) => {
-  const cardItem = new Card(card, {
-    handleCardClick: card => popupImg.openPopup(card),
-    _handleAddLike: () => _handleAddLike(card, data),
-  })
-  return cardItem;
-}
+
+
+// const createElement = (card) => {
+//   const cardItem = new Card(card, {
+//     handleCardClick: card => popupImg.openPopup(card),
+//     _handleAddLike: () => _handleAddLike(card, data),
+//   })
+//   return cardItem;
+// }
 
 
 
