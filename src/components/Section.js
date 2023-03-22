@@ -1,14 +1,14 @@
 /* Отвечает за отрисовку элементов на странице */
-import {elementsList} from '../components/variables.js'
+
 export default class Section {
-  constructor({ item, renderer }, elementsList) {
+  constructor({ item, renderer }, selector) {
     this._renderedItems = item;
     this._renderer = renderer;
 
-    this._container = elementsList;
+    this._container = document.querySelector(selector);
   }
 
-  setItem(element) {
+  addItem(element) {
     this._container.append(element);
   }
 

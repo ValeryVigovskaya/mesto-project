@@ -40,7 +40,7 @@ import {
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
   popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
-  formAvatartEdit, userSelf
+  formAvatartEdit, userSelf, sectionSelector
 } from './components/variables.js'
 import { data } from 'autoprefixer';
 
@@ -63,13 +63,25 @@ Promise.all([api._getUserInfo(), api.getInitialCards()])
     userSelf.id = user._id;
     avatar.src = user.avatar;
     // console.log(cards);
-    cards.forEach(item => {
-      const cardNew = new Card(item);
+    const cardNew = new Card(data);
+
+
+    const sectionNew = new Section (
+      {renderer: () => {
+        const cardElement = cardNew.generate();
+        console.log(cardElement);
+        }},
+        sectionSelector
+    )
+    sectionNew.renderItems(cards)
+    //cards.forEach(item => {
+
+      /*const cardNew = new Card(item);
       //console.log(cardNew);
       const cardElement = cardNew.generate();
       // console.log(cardElement);
-      elementsList.append(cardElement);
-    });
+      elementsList.append(cardElement);*/
+    //});
   })
   .catch((err) => {
     console.log(err); // выводим ошибку в консоль, если запрос неуспешный

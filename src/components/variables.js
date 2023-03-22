@@ -26,6 +26,7 @@ const formElementAdd = popupAdd.querySelector('.popup__form');
 const nameInput = popupAdd.querySelector('#title');
 const linkInput = popupAdd.querySelector('#link');
 const userSelf = document.querySelector('.profile');
+const sectionSelector = ('.elements__list');
 
 const elementTemplate = document.querySelector('#element-template').content; //шаблон элемента из html
 
@@ -46,5 +47,5 @@ export {
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
   popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
-  formAvatartEdit, userSelf
+  formAvatartEdit, userSelf, sectionSelector
 }
