@@ -80,7 +80,7 @@ export { createElement }
 // console.log(elementTemplate);
 
 export default class Card {
-  constructor(data) {
+  constructor(data, selector) {
     this._name = data.name;
     this._link = data.link;
     // console.log(data.link);
@@ -90,7 +90,7 @@ export default class Card {
     this._deleteButton = document.querySelector('.element__delete');
     // console.log(this._deleteButton);
 
-    this._elementTemplate = elementTemplate;
+    this._elementTemplate = selector;
     this._id = data._id;
     // console.log(data._id); // выводит 30 ID
     // this._user = '5677928b-be8e-49ee-ae63-e0ec29ade066';
@@ -104,7 +104,7 @@ export default class Card {
   _createElement() {
     // console.log(elementTemplate);
     // console.log(this._elementTemplate)
-    const elementsClone = this._elementTemplate.cloneNode(true);
+    const elementsClone = document.querySelector(this._elementTemplate).content.querySelector('.element').cloneNode(true);
     //console.log(this._elementTemplate);
     //console.log(elementsClone);
     return elementsClone;

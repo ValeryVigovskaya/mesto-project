@@ -62,26 +62,18 @@ Promise.all([api._getUserInfo(), api.getInitialCards()])
     description.textContent = user.about;
     userSelf.id = user._id;
     avatar.src = user.avatar;
-    // console.log(cards);
-    const cardNew = new Card(data);
-
-
     const sectionNew = new Section (
-      {renderer: () => {
+    { items: cards,
+      renderer: (data) => {
+        const cardNew = new Card(data, elementTemplate);
         const cardElement = cardNew.generate();
-        console.log(cardElement);
-        }},
-        sectionSelector
-    )
+        return cardElement;
+      },
+    },
+      sectionSelector
+  )
     sectionNew.renderItems(cards)
-    //cards.forEach(item => {
 
-      /*const cardNew = new Card(item);
-      //console.log(cardNew);
-      const cardElement = cardNew.generate();
-      // console.log(cardElement);
-      elementsList.append(cardElement);*/
-    //});
   })
   .catch((err) => {
     console.log(err); // выводим ошибку в консоль, если запрос неуспешный
@@ -89,76 +81,12 @@ Promise.all([api._getUserInfo(), api.getInitialCards()])
 
 
 
-// const createElement = (card) => {
-//   const cardItem = new Card(card, {
-//     handleCardClick: card => popupImg.openPopup(card),
-//     _handleAddLike: () => _handleAddLike(card, data),
-//   })
-//   return cardItem;
-// }
+  //function createCard (data) {
+   // const cardNew = new Card(data, elementTemplate);
+   // const cardElement = cardNew.generate();
+   // return cardElement;
+  //}
 
-
-
-
-// const cardList = new Section({
-
-//   renderer: (card, user) => {
-//     const cardNew = new Card(card,{handleCardClick: (card) => {popupWithImage.openPopup(card)},
-//   },
-//   {_handleAddLike:(card)=>{_handleAddLike(card, cardNew)}},
-
-
-// const createNewCard = data => {
-//   const card = new Card(data, userInfo.userId, cardTemplateSelector, {
-//     handleCardClick: data => popupImage.open(data),
-//     handleCardDelete: () => {
-//       currentCard = card;
-//       popupWithConfirm.open(data._id);
-//     },
-//     handleLikeClick: () => handleLikeClick(card, data),
-//     cardImageloader: () => cardImageloader(card, cardImageErrorClass)
-//   });
-//   return card;
-
-
-
-//     )
-
-//     }
-//   })
-
-
-  // set cards info
-//   section = new Section({
-//     items: cardsInfo,
-//     renderer: (item) => {
-//       const cardElement = createCard(item);
-//       section.addItem(cardElement);
-//     }
-//   },
-//   constants.cardsContainerSelector
-// );
-// section.renderItems();
-
-
-
-
-// const cardList = new Section({
-//   data: messageList,
-//   renderer: (messageItem) => {
-//     const message = messageItem.isOwner
-//       ? new UserMessage(messageItem, '.message-template_type_user')
-//       : new DefaultMessage(messageItem, '.message-template_type_default');
-
-//     const messageElement = message.generate();
-
-//     cardList.setItem(messageElement);
-//     },
-//   },
-//   cardListSection
-// );
-
-// cardList.renderItems();
 
 //промисом получили данные с сервера
 // Promise.all([getUserInfo(), getInitialCards()])

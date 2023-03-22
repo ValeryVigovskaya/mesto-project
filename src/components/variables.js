@@ -28,7 +28,7 @@ const linkInput = popupAdd.querySelector('#link');
 const userSelf = document.querySelector('.profile');
 const sectionSelector = ('.elements__list');
 
-const elementTemplate = document.querySelector('#element-template').content; //шаблон элемента из html
+const elementTemplate = ('#element-template'); //шаблон элемента из html
 
 const settings = {
   formSelector: '.popup__form',

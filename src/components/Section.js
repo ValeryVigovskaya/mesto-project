@@ -1,8 +1,8 @@
 /* Отвечает за отрисовку элементов на странице */
 
 export default class Section {
-  constructor({ item, renderer }, selector) {
-    this._renderedItems = item;
+  constructor({ items, renderer }, selector) {
+    this._renderedItems = items;
     this._renderer = renderer;
 
     this._container = document.querySelector(selector);
@@ -13,14 +13,15 @@ export default class Section {
   }
 
   clear() {
-    this._container.innerHTML = '';
+   this._container.innerHTML = '';
   }
 
   renderItems() {
     this.clear();
-
     this._renderedItems.forEach((item) => {
-      this._renderer(item);
+      const element = this._renderer(item);
+      this.addItem(element);
+      return element;
     });
   }
 }
