@@ -65,7 +65,7 @@ Promise.all([api._getUserInfo(), api.getInitialCards()])
     const sectionNew = new Section (
     { items: cards,
       renderer: (data) => {
-        const cardNew = new Card(data, elementTemplate);
+        const cardNew = new Card(data, userSelf,  elementTemplate)
         const cardElement = cardNew.generate();
         return cardElement;
       },

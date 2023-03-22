@@ -80,8 +80,9 @@ export { createElement }
 // console.log(elementTemplate);
 
 export default class Card {
-  constructor(data, selector) {
+  constructor(data, user, selector) {
     this._name = data.name;
+
     this._link = data.link;
     // console.log(data.link);
 
@@ -91,7 +92,9 @@ export default class Card {
     // console.log(this._deleteButton);
 
     this._elementTemplate = selector;
-    this._id = data._id;
+    this._id = data.owner._id;
+    this.id = user;
+
     // console.log(data._id); // выводит 30 ID
     // this._user = '5677928b-be8e-49ee-ae63-e0ec29ade066';
     // console.log(data.user); // undefined
@@ -111,7 +114,7 @@ export default class Card {
 }
   generate() {
     // this._countLikes();
-    this._deleteCard();
+
     // this._setEventListeners();
     this._element = this._createElement();
     this._element.querySelector('.element__image').src = this._link;
@@ -119,6 +122,7 @@ export default class Card {
     this._element.querySelector('.element__caption').textContent = this._name;
 
     return this._element;
+
   }
     _handleAddLike(data) {
     this._element.querySelector('.element__like').classList.toggle('element__like_active');
@@ -136,13 +140,13 @@ export default class Card {
       }
     }
 
-  _deleteCard() {
+ // _deleteCard() {
     // console.log(this._deleteButton);
 
-    // if (data._id !== data.owner._id) {
-    //   this._deleteButton.classList.add('element__delete_inactive');
-    // }
-  }
+    //if (this.id !== this._id) {
+      //this._deleteButton.classList.add('element__delete_inactive');
+    //}
+  //}
 
   _setEventListeners() {
     this._element.querySelector('.element__like').addEventListener('click', () => {
