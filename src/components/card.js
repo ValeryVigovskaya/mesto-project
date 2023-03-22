@@ -2,7 +2,7 @@ import { popupImg, imgInsert, nameInsert, elementTemplate } from './variables.js
 //import { openPopup } from './modal.js'  // импортировали функции, которые используются
 //import { deleteLikeCard, putLikeCard, deleteCard } from './api.js'
 
-import {api} from './api.js'
+import { api } from './api.js'
 
 
 /*
@@ -87,7 +87,7 @@ export default class Card {
     // console.log(data.link);
 
     // this._like = card.like;
-    // this._likeAmout = document.querySelector('.element__amount-likes');
+    this._likeAmout = document.querySelector('.element__amount-likes');
     this._deleteButton = document.querySelector('.element__delete');
     // console.log(this._deleteButton);
 
@@ -111,7 +111,7 @@ export default class Card {
     //console.log(this._elementTemplate);
     //console.log(elementsClone);
     return elementsClone;
-}
+  }
   generate() {
     // this._countLikes();
 
@@ -124,44 +124,46 @@ export default class Card {
     if (this.id !== this._id) {
       this._deleteButton.classList.add('element__delete_inactive');
     }
+    this._element.querySelector('.element__like').classList.toggle('element__like_active');
+    // this._likeAmout.textContent = data.likes.length;
     return this._element;
 
   }
-    _handleAddLike(data) {
-    this._element.querySelector('.element__like').classList.toggle('element__like_active');
-    this._likeAmout.textContent = data.likes.length;
-  }
+  //   _handleAddLike(data) {
+  //   this._element.querySelector('.element__like').classList.toggle('element__like_active');
+  //   this._likeAmout.textContent = data.likes.length;
+  // }
 
-  _handleRemoveLike(data) {
-    this._element.querySelector('.element__like').classList.remove('element__like_active');
-    this._likeAmout.textContent = data.likes.length;
-  }
+  // _handleRemoveLike(data) {
+  //   this._element.querySelector('.element__like').classList.remove('element__like_active');
+  //   this._likeAmout.textContent = data.likes.length;
+  // }
 
-  _countLikes() {
-      if(card.likes._id === user._id){
-        this._element.classList.add('element__like_active');
-      }
-    }
+  // _countLikes() {
+  //     if(card.likes._id === user._id){
+  //       this._element.classList.add('element__like_active');
+  //     }
+  //   }
 
-  _setEventListeners() {
-    this._element.querySelector('.element__like').addEventListener('click', () => {
-      if (!evt.target.classList.contains('element__like_active')) {
-            this._handleAddLike()
-          } else {
-            this._handleRemoveLike()
-          }
-      });
+  // _setEventListeners() {
+  //   this._element.querySelector('.element__like').addEventListener('click', () => {
+  //     if (!evt.target.classList.contains('element__like_active')) {
+  //           this._handleAddLike()
+  //         } else {
+  //           this._handleRemoveLike()
+  //         }
+  //     });
 
-      this._deleteButton.addEventListener('click', (evt) => {
-        evt.stopPropagation();
-        this._element.remove();
-      });
-      this._element.querySelector('.element__image').addEventListener('click', function (evt) {
-        handleCardClick(card);
-        this._element.querySelector('.element__image').classList.toggle('.element__image');
-      });
-    }
-  }
+  //     this._deleteButton.addEventListener('click', (evt) => {
+  //       evt.stopPropagation();
+  //       this._element.remove();
+  //     });
+  //     this._element.querySelector('.element__image').addEventListener('click', function (evt) {
+  //       handleCardClick(card);
+  //       this._element.querySelector('.element__image').classList.toggle('.element__image');
+  //     });
+  //   }
+}
 
 
 export function handleCardClick(card) {
