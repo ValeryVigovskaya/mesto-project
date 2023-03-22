@@ -50,29 +50,35 @@ import { data } from 'autoprefixer';
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
   headers: {
-  authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
+    authorization: '5677928b-be8e-49ee-ae63-e0ec29ade066',
     'Content-Type': 'application/json'
   }
- });
+});
 
 //  console.log(api.getInitialCards());
 
-Promise.all([api._getUserInfo(), api.getInitialCards()])
+Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   .then(([user, cards]) => {
     username.textContent = user.name;
     description.textContent = user.about;
     userSelf.id = user._id;
     avatar.src = user.avatar;
-    const sectionNew = new Section (
-    { items: cards,
-      renderer: (data) => {
-        const cardNew = new Card(data, userSelf.id,  elementTemplate)
-        const cardElement = cardNew.generate();
-        return cardElement;
+    const sectionNew = new Section(
+      {
+        items: cards,
+        renderer: (data) => {
+          const cardNew = new Card(data, userSelf.id, elementTemplate, {
+            handleCardDelete: (cardElement, cardId) => {
+              api.deleteCard(cardId)
+                .then(() => cardElement.remove())
+            },
+          })
+          const cardElement = cardNew.generate();
+          return cardElement;
+        },
       },
-    },
       sectionSelector
-  )
+    )
     sectionNew.renderItems(cards)
 
   })
@@ -155,3 +161,15 @@ popups.forEach((popup) => {
 
 // formAvatartEdit.addEventListener('submit', editAvatarForm);
 
+// function handleLikeClick(card, data) {
+//   const promise = card.isLiked()
+//     ? api.dislikeCard(data._id)
+//     : api.likeCard(data._id);
+//   promise
+//     .then(data => {
+//       card.setLike(data);
+//     })
+//     .catch(err => {
+//       console.log(`${err}`);
+//     });
+// }
