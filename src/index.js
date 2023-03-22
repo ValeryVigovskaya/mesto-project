@@ -1,3 +1,4 @@
+
 import './pages/index.css';
 
 // import {
@@ -65,7 +66,7 @@ Promise.all([api._getUserInfo(), api.getInitialCards()])
     const sectionNew = new Section (
     { items: cards,
       renderer: (data) => {
-        const cardNew = new Card(data, userSelf,  elementTemplate)
+        const cardNew = new Card(data, userSelf.id,  elementTemplate)
         const cardElement = cardNew.generate();
         return cardElement;
       },

@@ -120,7 +120,10 @@ export default class Card {
     this._element.querySelector('.element__image').src = this._link;
     this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__caption').textContent = this._name;
-
+    this._deleteButton = this._element.querySelector('.element__delete');
+    if (this.id !== this._id) {
+      this._deleteButton.classList.add('element__delete_inactive');
+    }
     return this._element;
 
   }
@@ -139,14 +142,6 @@ export default class Card {
         this._element.classList.add('element__like_active');
       }
     }
-
- // _deleteCard() {
-    // console.log(this._deleteButton);
-
-    //if (this.id !== this._id) {
-      //this._deleteButton.classList.add('element__delete_inactive');
-    //}
-  //}
 
   _setEventListeners() {
     this._element.querySelector('.element__like').addEventListener('click', () => {
