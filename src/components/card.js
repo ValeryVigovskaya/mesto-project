@@ -124,13 +124,13 @@ export default class Card {
     this._element.querySelector('.element__like').classList.toggle('element__like_active');
     this._deleteButton = this._element.querySelector('.element__delete');
     // this._likeAmout.textContent = data.likes.length;
-    this._deleteBtnState()
+    this._setDeleteBtnState()
     this._setEventListeners();
     return this._element;
 
   }
 
-  _deleteBtnState() {
+  _setDeleteBtnState() {
     if (this.id !== this._id) {
       this._deleteButton.classList.add('element__delete_inactive');
     }
