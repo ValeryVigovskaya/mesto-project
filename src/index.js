@@ -32,7 +32,6 @@ import Popup from './components/Popup.js'
 import PopupWithForm from './components/PopupWithForm.js'
 import PopupWithImage from './components/PopupWithImage.js'
 import Card from './components/card.js'
-import { handleCardClick } from './components/card.js'
 import {
   settings, popups, popupEditOpenButton, popupEdit,
   popupEditSaveButton, popupAddOpenButton, popupAdd,
@@ -72,6 +71,9 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
               api.deleteCard(cardId)
                 .then(() => cardElement.remove())
             },
+            handleCardClick: () => {
+              popupImage.openPopup(data);
+            },
           })
           const cardElement = cardNew.generate();
           return cardElement;
@@ -85,6 +87,9 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   .catch((err) => {
     console.log(err); // выводим ошибку в консоль, если запрос неуспешный
   });
+
+  const popupImage = new PopupWithImage(popupImg)
+  popupImage.setEventListeners();
 
 
 

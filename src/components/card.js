@@ -80,7 +80,7 @@ export { createElement }
 // console.log(elementTemplate);
 
 export default class Card {
-  constructor(data, user, selector, {handleCardDelete}) {
+  constructor(data, user, selector, {handleCardDelete, handleCardClick}) {
     this._name = data.name;
     this._cardId = data._id;
     this._link = data.link;
@@ -96,6 +96,7 @@ export default class Card {
     this._id = data.owner._id;
     this.id = user;
     this._handleCardDelete = handleCardDelete;
+    this._handleCardClick = handleCardClick;
     this._card = data.card;
 
 
@@ -114,6 +115,7 @@ export default class Card {
     this._element.querySelector('.element__like').classList.toggle('element__like_active');
     this._deleteButton = this._element.querySelector('.element__delete');
     this._likeAmout = this._element.querySelector('.element__amount-likes');
+    this._imageButton = this._element.querySelector('.element__image');
 
     this._likeAmout.textContent = this._like.length;
     // console.log(this._likeAmout);
@@ -156,16 +158,6 @@ export default class Card {
   //     });
 
       this._deleteButton.addEventListener('click', () => this._handleCardDelete(this._element, this._cardId));
-  //     this._element.querySelector('.element__image').addEventListener('click', function (evt) {
-  //       handleCardClick(card);
-  //       this._element.querySelector('.element__image').classList.toggle('.element__image');
-  //     });
+      this._imageButton.addEventListener('click', () => this._handleCardClick(this._link, this._name));
     }
 }
-
-export function handleCardClick(card) {
-  imgInsert.src = card.link;
-  imgInsert.alt = card.name;
-  nameInsert.textContent = card.name;
-};
-

@@ -60,3 +60,4 @@
 * Реализован метод удаления собственной карточки./ Commit_6_23 build Card, method _deleteBtnState(), deleteCard API Вдовина Дарья/
 * Исправлено название метода в классе Card./ Commit_6_24 fix Card class method name Вдовина Дарья/
 * Реализован функционал отражения в карточке количества лайков./ Commit_6_25 build Card Кирьянов Игорь/
+* Реализован функционал открытия попапа с картинкой, создан экземпляр класса PopupWithImage, пофиксили класс Popup, чтобы работал корректно ./ Commit_6_26 build Card, PopupWithImage, Popup Виговская Валерия/

@@ -6,7 +6,7 @@ const popupEditSaveButton = popupEdit.querySelector('.popup__button');
 const popupAddOpenButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('#popup__add');
 const popupAddSubmitButton = popupAdd.querySelector('.popup__button');
-const popupImg = document.querySelector('#popup_with_img');
+
 const elementsList = document.querySelector('.elements__list'); //добавили переменную,  в которую добавляется шаблон
 const popupEditAvatar = document.querySelector('#popup__avatar');
 const popupAvatarSubmitButton = popupEditAvatar.querySelector('.popup__button');
@@ -26,8 +26,9 @@ const formElementAdd = popupAdd.querySelector('.popup__form');
 const nameInput = popupAdd.querySelector('#title');
 const linkInput = popupAdd.querySelector('#link');
 const userSelf = document.querySelector('.profile');
-const sectionSelector = ('.elements__list');
 
+const sectionSelector = ('.elements__list');
+const popupImg = ('#popup_with_img');
 const elementTemplate = ('#element-template'); //шаблон элемента из html
 
 const settings = {

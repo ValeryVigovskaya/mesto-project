@@ -1,4 +1,5 @@
 /*   */
+import Popup from '../components/Popup.js'
 import { submitCardForm, submitEditProfileForm, handleSubmit, editAvatarForm } from "./utils.js"
 import { formEditProfile, formElementAdd, formAvatartEdit } from './variables.js'
 
