@@ -67,3 +67,4 @@
 * Отредактирован класс PopupWithForm, начато редактирование UserInfo, созданы экземпляры, начал открываться попап редактирования профиля/ Commit_6_30 build index.js, PopupWithForm, UserInfo  Виговская Валерия/
 * Переработка класса UserInfo и добавление его в index.js/Commit_6_31 build class UserInfo Вдовина Дарья/
 * * Отредактирован класс PopupWithForm, добавлены изменения экземпляра класса/ Commit_6_31 build index.js, PopupWithForm  Виговская Валерия/
+* Попытка реализации отправки данных пользователя на сервер/ Commit_6_32 build: api PatchEditProfile Вдовина Дарья/
