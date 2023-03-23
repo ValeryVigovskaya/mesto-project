@@ -3,28 +3,64 @@ import {
   username, avatar,
   description
 } from './variables.js'
+// export default class UserInfo {
+//   constructor({name, description, avatar}, api){
+//     this._name = name;
+//     this._about = description;
+//     this._avatar = avatar;
+//     this._api = api;
+//   }
+//   getUserInfo(){
+//     const data = {};
+//     data.username = this._name.textContent;
+//     data.description = this._about.textContent;
+//     return data;
+//   }
+
+//   setUserInfo(data, {avatar}){
+//     this._name.textContent = data.username;
+//     this._about.textContent = data.description;
+//     this.userId = userId;
+//     setUserAvatar({avatar})
+//   }
+
+//   setUserAvatar({avatar}){
+//     this._avatar.src = avatar;
+//   }
+// }
+
 export default class UserInfo {
-  constructor({name, description, avatar}, api){
-    this._name = name;
-    this._about = description;
-    this._avatar = avatar;
-    this._api = api;
-  }
-  getUserInfo(){
-    const data = {};
-    data.username = this._name.textContent;
-    data.description = this._about.textContent;
-    return data;
+  constructor(username, description, avatar) {
+    this._userName = document.querySelector(username);
+    this._userAbout = document.querySelector(description);
+    this._userAvatar = document.querySelector(avatar);
   }
 
-  setUserInfo(data, {avatar}){
-    this._name.textContent = data.username;
-    this._about.textContent = data.description;
-    this.userId = userId;
-    setUserAvatar({avatar})
+  getUserInfo() {
+    this._name = this._userName.textContent;
+    this._about = this._userAbout.textContent
+
+    this.userInfo = {
+      name: this._name,
+      about: this._about
+    };
+    return this.userInfo
   }
 
-  setUserAvatar({avatar}){
-    this._avatar.src = avatar;
+  setUserInfo(name, about) {
+    this._userName.textContent = name;
+    this._userAbout.textContent = about;
   }
-}
+
+  setUserAvatar (avatar){
+    this._userAvatar.src = avatar;
+
+  }
+    saveInfo(userInfo) {
+      this._info = userInfo
+    }
+
+    getId = () => {
+      return this._info._id
+    }
+  }

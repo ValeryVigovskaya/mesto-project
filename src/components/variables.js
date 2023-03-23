@@ -8,7 +8,7 @@ const popupEditAvatar = document.querySelector('#popup__avatar');
 const popupAvatarSubmitButton = popupEditAvatar.querySelector('.popup__button');
 const popupEditAvatarButton = document.querySelector('.profile__avatar-hover');
 const avatarInput = popupEditAvatar.querySelector('#avatar');
-const avatar = document.querySelector('.profile__avatar');
+const avatar = ('.profile__avatar');
 const formAvatartEdit = popupEditAvatar.querySelector('.popup__form');
 //реализация сохранения редактирования профиля
 const textInput = document.querySelector('#name');

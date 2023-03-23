@@ -23,7 +23,7 @@ import './pages/index.css';
 // import { createElement } from './components/Card.js'
 
 // import { getUserInfo, getInitialCards } from '../src/components/api.js'
-
+import { handleSubmit } from './components/utils';
 import Section from './components/Section.js'
 //import {api} from './components/api.js'
 import Api from './components/api.js'
@@ -55,14 +55,14 @@ const api = new Api({
   }
 });
 
-//  console.log(api.getInitialCards());
+const userInfo = new UserInfo(username, description, avatar);
+
 
 Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   .then(([user, cards]) => {
-    //username.textContent = user.name;
-    //description.textContent = user.about;
-    userSelf.id = user._id;
-    avatar.src = user.avatar;
+    userInfo.saveInfo(user);
+    userInfo.setUserInfo(user.name, user.about);
+    userInfo.setUserAvatar(user.avatar);
     popupEditOpenButton.addEventListener('click', function () {
       submitEditProfileForm.openPopup(popupEdit);
       textInput.value = user.name;
@@ -116,13 +116,6 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   })
   submitEditProfileForm.setEventListeners();
 
-
-//данные пользователя
-const userInfo = new UserInfo({
-  name: username,
-  description: description,
-  avatar: avatar,
-})
 
 
 //Включаем валидацию форм
