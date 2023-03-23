@@ -99,6 +99,23 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
 
 
 
+
+
+
+
+
+  
+//Включаем валидацию форм
+
+const profileFormValidator = new FormValidator(settings, formEditProfile);
+const cardFormValidator = new FormValidator(settings, formElementAdd);
+const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
+
+profileFormValidator.enableValidation();
+cardFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
+
+
   //function createCard (data) {
    // const cardNew = new Card(data, elementTemplate);
    // const cardElement = cardNew.generate();
