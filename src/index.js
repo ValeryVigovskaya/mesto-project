@@ -119,11 +119,11 @@ popupEditOpenButton.addEventListener('click', function () {
 
 //Включаем валидацию форм
 
-// const profileFormValidator = new FormValidator(settings, formEditProfile);
+const profileFormValidator = new FormValidator(settings, formEditProfile);
 // const cardFormValidator = new FormValidator(settings, formElementAdd);
 // const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
 
-// profileFormValidator.enableValidation();
+profileFormValidator.enableValidation(settings);
 // cardFormValidator.enableValidation();
 // avatarFormValidator.enableValidation();
 
