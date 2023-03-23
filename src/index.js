@@ -28,6 +28,7 @@ import Section from './components/Section.js'
 //import {api} from './components/api.js'
 import Api from './components/api.js'
 import FormValidator from './components/FormValidator.js'
+import UserInfo from './components/UserInfo.js'
 import Popup from './components/Popup.js'
 import PopupWithForm from './components/PopupWithForm.js'
 import PopupWithImage from './components/PopupWithImage.js'
@@ -36,7 +37,7 @@ import {
   settings, popups, popupEditOpenButton, popupEdit,
   popupEditSaveButton, popupAddOpenButton, popupAdd,
   popupImg,
-  elementsList, formEditProfile, textInput,
+  elementsList, textInput,
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
   popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
@@ -58,10 +59,15 @@ const api = new Api({
 
 Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   .then(([user, cards]) => {
-    username.textContent = user.name;
-    description.textContent = user.about;
+    //username.textContent = user.name;
+    //description.textContent = user.about;
     userSelf.id = user._id;
     avatar.src = user.avatar;
+    popupEditOpenButton.addEventListener('click', function () {
+      submitEditProfileForm.openPopup(popupEdit);
+      textInput.value = user.name;
+      jobInput.value = user.about;
+    })
     const sectionNew = new Section(
       {
         items: cards,
@@ -97,14 +103,28 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   const popupImage = new PopupWithImage(popupImg)
   popupImage.setEventListeners();
 
+  const submitEditProfileForm = new PopupWithForm(popupEdit, {submitCallBackForm: (data) => {
+    function makeRequest(){
+      return api.patchEditProfile(data)
+      .then((user) => {
+        userInfo.setUserInfo(user)
+        submitEditProfileForm.closePopup(popupEdit);
+      })
+    }
+    handleSubmit(makeRequest, evt);
+  }
+  })
+  submitEditProfileForm.setEventListeners();
 
 
+//данные пользователя
+const userInfo = new UserInfo({
+  name: username,
+  description: description,
+  avatar: avatar,
+})
 
 
-
-
-
-  
 //Включаем валидацию форм
 
 const profileFormValidator = new FormValidator(settings, formEditProfile);

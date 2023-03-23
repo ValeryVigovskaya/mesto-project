@@ -18,13 +18,13 @@ export default class Api {
     })
   }
 
-  patchEditProfile(username, description){
+  patchEditProfile(data){
     return request(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers:  this._headers,
       body: JSON.stringify({
-        name: username,
-        about: description
+        name: data.username,
+        about: data.description
       })
     })
   }

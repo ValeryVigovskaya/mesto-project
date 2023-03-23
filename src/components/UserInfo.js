@@ -4,8 +4,8 @@ import {
   description
 } from './variables.js'
 export default class UserInfo {
-  constructor({username, description, avatar}, api){
-    this._name = username;
+  constructor({name, description, avatar}, api){
+    this._name = name;
     this._about = description;
     this._avatar = avatar;
     this._api = api;
