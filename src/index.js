@@ -62,11 +62,6 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
     userInfo.saveInfo(user);
     userInfo.setUserInfo(user.name, user.about);
     userInfo.setUserAvatar(user.avatar);
-    popupEditOpenButton.addEventListener('click', function () {
-      submitEditProfileForm.openPopup(popupEdit);
-      textInput.value = user.name;
-      jobInput.value = user.about;
-    })
     const sectionNew = new Section(
       {
         items: cards,
@@ -115,7 +110,12 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
 
   submitEditProfileForm.setEventListeners()
 
-
+popupEditOpenButton.addEventListener('click', function () {
+      const data = userInfo.getUserInfo();
+      textInput.value = data.name;
+      jobInput.value = data.about;
+      submitEditProfileForm.openPopup(popupEdit);
+    })
 
 //Включаем валидацию форм
 

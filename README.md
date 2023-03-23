@@ -68,3 +68,4 @@
 * Переработка класса UserInfo и добавление его в index.js/Commit_6_31 build class UserInfo Вдовина Дарья/
 * * Отредактирован класс PopupWithForm, добавлены изменения экземпляра класса/ Commit_6_31 build index.js, PopupWithForm  Виговская Валерия/
 * Попытка реализации отправки данных пользователя на сервер/ Commit_6_32 build: api PatchEditProfile Вдовина Дарья/
+* Вынесен слушатель кнопки редактирования из Prom.all/ Commit_6_33 build index.js  Виговская Валерия/
