@@ -101,7 +101,7 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
     //submitEditProfileForm.renderLoading(false);
      api.patchEditProfile(data)
       .then((user) => {
-        userInfo.setUserInfo(user)
+        userInfo.setUserInfo(textInput.value, jobInput.value)
         submitEditProfileForm.closePopup(popupEdit);
         //submitEditProfileForm.renderLoading(true)
       })
