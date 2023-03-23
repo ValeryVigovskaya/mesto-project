@@ -77,10 +77,9 @@ function createNewPopupImage(card) {
 export { createElement }
 */
 
-// console.log(elementTemplate);
 
 export default class Card {
-  constructor(data, user, selector, {handleCardDelete, handleCardClick}) {
+  constructor(data, user, selector, {handleCardDelete, handleCardClick, handleLikeClick}) {
     this._name = data.name;
     this._cardId = data._id;
     this._link = data.link;
@@ -89,6 +88,7 @@ export default class Card {
     this._elementTemplate = selector;
     this._id = data.owner._id;
     this.id = user;
+    this._handleLikeClick = handleLikeClick;
     this._handleCardDelete = handleCardDelete;
     this._handleCardClick = handleCardClick;
     this._card = data.card;
@@ -106,16 +106,12 @@ export default class Card {
     this._element.querySelector('.element__image').src = this._link;
     this._element.querySelector('.element__image').alt = this._name;
     this._element.querySelector('.element__caption').textContent = this._name;
-    // this._element.querySelector('.element__like').classList.toggle('element__like_active');
     this._deleteButton = this._element.querySelector('.element__delete');
     this._likeAmout = this._element.querySelector('.element__amount-likes');
     this._likeAmout.textContent = this._like.length;
     this._likeButton = this._element.querySelector('.element__like');
 
     this._imageButton = this._element.querySelector('.element__image');
-
-
-
 
 
 
@@ -156,15 +152,8 @@ export default class Card {
   //   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener('click', (evt) => {
-      if (!evt.target.classList.contains('element__like_active')) {
-            this._handleAddLike()
-          } else {
-            this._handleRemoveLike()
-          }
-      });
-
-      this._deleteButton.addEventListener('click', () => this._handleCardDelete(this._element, this._cardId));
+      this._likeButton.addEventListener('click', (evt) => this._handleLikeClick());
+            this._deleteButton.addEventListener('click', () => this._handleCardDelete(this._element, this._cardId));
       this._imageButton.addEventListener('click', () => this._handleCardClick(this._link, this._name));
     }
 }

@@ -74,6 +74,12 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
             handleCardClick: () => {
               popupImage.openPopup(data);
             },
+            handleLikeClick: () => {
+              if (!event.target.classList.contains('element__like_active')) {
+                cardNew._handleAddLike();
+              } else {
+                cardNew._handleRemoveLike();}
+            },
           })
           const cardElement = cardNew.generate();
           return cardElement;
