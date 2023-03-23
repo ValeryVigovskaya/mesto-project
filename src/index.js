@@ -23,7 +23,6 @@ import './pages/index.css';
 // import { createElement } from './components/Card.js'
 
 // import { getUserInfo, getInitialCards } from '../src/components/api.js'
-import { handleSubmit } from './components/utils';
 import Section from './components/Section.js'
 //import {api} from './components/api.js'
 import Api from './components/api.js'
@@ -41,7 +40,7 @@ import {
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
   popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
-  formAvatartEdit, userSelf, sectionSelector
+  formAvatartEdit, userSelf, sectionSelector, formEditProfile
 } from './components/variables.js'
 import { data } from 'autoprefixer';
 
@@ -104,29 +103,29 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   popupImage.setEventListeners();
 
   const submitEditProfileForm = new PopupWithForm(popupEdit, {submitCallBackForm: (data) => {
-    function makeRequest(){
-      return api.patchEditProfile(data)
+    //submitEditProfileForm.renderLoading(false);
+     api.patchEditProfile(data)
       .then((user) => {
         userInfo.setUserInfo(user)
         submitEditProfileForm.closePopup(popupEdit);
+        //submitEditProfileForm.renderLoading(true)
       })
     }
-    handleSubmit(makeRequest, evt);
-  }
-  })
-  submitEditProfileForm.setEventListeners();
+  });
+
+  submitEditProfileForm.setEventListeners()
 
 
 
 //Включаем валидацию форм
 
-const profileFormValidator = new FormValidator(settings, formEditProfile);
-const cardFormValidator = new FormValidator(settings, formElementAdd);
-const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
+// const profileFormValidator = new FormValidator(settings, formEditProfile);
+// const cardFormValidator = new FormValidator(settings, formElementAdd);
+// const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
 
-profileFormValidator.enableValidation();
-cardFormValidator.enableValidation();
-avatarFormValidator.enableValidation();
+// profileFormValidator.enableValidation();
+// cardFormValidator.enableValidation();
+// avatarFormValidator.enableValidation();
 
 
   //function createCard (data) {

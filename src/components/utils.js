@@ -1,8 +1,8 @@
-import {
+/*import {
   popupEdit, popupAdd, textInput, jobInput,
   username, popupEditAvatar, avatarInput, avatar,
   description, elementsList, nameInput, linkInput, userSelf
-} from './variables.js'
+} from './variables.js'*/
 // import { createElement } from './card.js'
 //import { closePopup } from './modal.js'
 //import { patchEditProfile, postNewCard, patchAvatarEdit } from './api.js'
@@ -89,4 +89,4 @@ function request(url, options) {
   return fetch(url, options).then(checkResponse)
 }
 
-export { request, handleSubmit, disableSubmitButton }
+export { request} //handleSubmit, disableSubmitButton }

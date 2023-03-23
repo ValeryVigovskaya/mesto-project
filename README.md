@@ -66,3 +66,4 @@
 * Созданы экземпляры класса FormValidator в index.js/ Commit_6_29 build index.js validation Вдовина Дарья/
 * Отредактирован класс PopupWithForm, начато редактирование UserInfo, созданы экземпляры, начал открываться попап редактирования профиля/ Commit_6_30 build index.js, PopupWithForm, UserInfo  Виговская Валерия/
 * Переработка класса UserInfo и добавление его в index.js/Commit_6_31 build class UserInfo Вдовина Дарья/
+* * Отредактирован класс PopupWithForm, добавлены изменения экземпляра класса/ Commit_6_31 build index.js, PopupWithForm  Виговская Валерия/

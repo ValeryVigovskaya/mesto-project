@@ -1,9 +1,8 @@
 import Popup from '../components/Popup.js'
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, {submitCallBackForm, handleSubmit}) {
+  constructor(popupSelector, {submitCallBackForm}) {
     super(popupSelector)
     this._submitCallBackForm = submitCallBackForm;
-    this._handleSubmit = handleSubmit;
     this._popupElement = this._popupItem.querySelector('.popup__form')
     this._submitButton = this._popupElement.querySelector('.popup__button');
 
@@ -21,7 +20,11 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._popupElement.addEventListener('submit', this._submitCallBackForm(this._getInputValues()));
+    this._popupElement.addEventListener('submit', (evt) =>{
+      evt.preventDefault();
+      this._submitCallBackForm(this._getInputValues());
+    })
+
   }
 
   closePopup() {
@@ -29,15 +32,15 @@ export default class PopupWithForm extends Popup {
     this._popupElement.reset();
   }
 
-  _renderLoading(isLoading, buttonText = 'Сохранить', loadingText = 'Сохранение...') {
+  renderLoading(isLoading, buttonText = 'Сохранить', loadingText = 'Сохранение...') {
     if (isLoading) {
-      this.submitButton.textContent = loadingText;
+      this._submitButton.textContent = loadingText;
     } else {
-      this.submitButton.textContent = buttonText;
+      this._submitButton.textContent = buttonText;
     }
   }
 
-  _handleSubmit(request, evt, loadingText = "Сохранение..."){
+ /* handleSubmit(request, evt, loadingText = "Сохранение..."){
     evt.preventDefault();
     this._submitButton = evt.submitter;
     this._submitButtonTextContent = this.submitButton.textContent;
@@ -52,5 +55,5 @@ export default class PopupWithForm extends Popup {
     .finally(() => {
       this._renderLoading(false, this._submitButton, this._submitButtonTextContent);
     });
-  }
+  }*/
 }

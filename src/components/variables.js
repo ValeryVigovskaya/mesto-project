@@ -25,6 +25,7 @@ const popupEditSaveButton = ('.popup__button');
 const popupAdd = ('#popup__add');
 const popupAddSubmitButton = ('.popup__button');
 const formElementAdd = ('.popup__form');
+const formEditProfile = document.querySelector('.popup__form');
 const sectionSelector = ('.elements__list');
 const popupEdit = ('#popup__edit');
 const popupImg = ('#popup_with_img');
@@ -47,5 +48,5 @@ export {
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
   popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
-  formAvatartEdit, userSelf, sectionSelector
+  formAvatartEdit, userSelf, sectionSelector, formEditProfile
 }
