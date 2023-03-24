@@ -39,21 +39,4 @@ export default class PopupWithForm extends Popup {
       this._submitButton.textContent = buttonText;
     }
   }
-
- /* handleSubmit(request, evt, loadingText = "Сохранение..."){
-    evt.preventDefault();
-    this._submitButton = evt.submitter;
-    this._submitButtonTextContent = this.submitButton.textContent;
-    this._renderLoading(true, this._submitButton, this._submitButtonTextContent, loadingText);
-    request()
-    .then(() => {
-      this._popup.reset();
-    })
-    .catch((err) => {
-      console.error(`Ошибка: ${err}`);
-    })
-    .finally(() => {
-      this._renderLoading(false, this._submitButton, this._submitButtonTextContent);
-    });
-  }*/
 }

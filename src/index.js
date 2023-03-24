@@ -101,13 +101,18 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   popupImage.setEventListeners();
 
   const submitEditProfileForm = new PopupWithForm(popupEdit, {submitCallBackForm: (data) => {
-    //submitEditProfileForm.renderLoading(false);
+    submitEditProfileForm.renderLoading(true);
      api.patchEditProfile(data)
-      .then((user) => {
+      .then(() => {
         userInfo.setUserInfo(textInput.value, jobInput.value)
         submitEditProfileForm.closePopup(popupEdit);
-        //submitEditProfileForm.renderLoading(true)
       })
+      .catch((err) => {
+        console.error(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        submitEditProfileForm.renderLoading(false);
+      });
     }
   });
 
@@ -203,16 +208,3 @@ popups.forEach((popup) => {
 // })
 
 // formAvatartEdit.addEventListener('submit', editAvatarForm);
-
-// function handleLikeClick(card, data) {
-//   const promise = card.isLiked()
-//     ? api.dislikeCard(data._id)
-//     : api.likeCard(data._id);
-//   promise
-//     .then(data => {
-//       card.setLike(data);
-//     })
-//     .catch(err => {
-//       console.log(`${err}`);
-//     });
-// }
