@@ -142,8 +142,12 @@ export default class Card {
   //     }
   //   }
 
+  _checkActiveClass(){
+    return this._likeButton.classList.contains('element__like_active')
+  }
+
   _setEventListeners() {
-      this._likeButton.addEventListener('click', (evt) => this._handleLikeClick(this._cardId, this.id));
+      this._likeButton.addEventListener('click', () => this._handleLikeClick(this._cardId, this.id));
             this._deleteButton.addEventListener('click', () => this._handleCardDelete(this._element, this._cardId));
       this._imageButton.addEventListener('click', () => this._handleCardClick(this._link, this._name));
     }

@@ -75,7 +75,7 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
               popupImage.openPopup(data);
             },
             handleLikeClick: (cardId) => {
-              if (!event.target.classList.contains('element__like_active')) {
+              if (!cardNew._checkActiveClass()) {
                 api.putLikeCard(cardId)
                   .then ((data) => cardNew._handleAddLike(data))
               } else {
