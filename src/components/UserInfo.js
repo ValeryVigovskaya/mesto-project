@@ -47,9 +47,10 @@ export default class UserInfo {
     return this.userInfo
   }
 
-  setUserInfo(name, about) {
+  setUserInfo(name, about, _id) {
     this._userName.textContent = name;
     this._userAbout.textContent = about;
+    this.userId = _id;
   }
 
   setUserAvatar (avatar){
@@ -60,7 +61,4 @@ export default class UserInfo {
       this._info = userInfo
     }
 
-    getId = () => {
-      return this._info._id
-    }
   }

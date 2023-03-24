@@ -60,13 +60,13 @@ const userInfo = new UserInfo(username, description, avatar);
 Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   .then(([user, cards]) => {
     userInfo.saveInfo(user);
-    userInfo.setUserInfo(user.name, user.about);
+    userInfo.setUserInfo(user.name, user.about, user._id);
     userInfo.setUserAvatar(user.avatar);
     const sectionNew = new Section(
       {
         items: cards,
         renderer: (data) => {
-          const cardNew = new Card(data, userSelf.id, elementTemplate, {
+          const cardNew = new Card(data, userInfo.userId, elementTemplate, {
             handleCardDelete: (cardElement, cardId) => {
               api.deleteCard(cardId)
                 .then(() => cardElement.remove())
@@ -77,10 +77,10 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
             handleLikeClick: (cardId) => {
               if (!event.target.classList.contains('element__like_active')) {
                 api.putLikeCard(cardId)
-                  .then (() => cardNew._handleAddLike())
+                  .then ((data) => cardNew._handleAddLike(data))
               } else {
                 api.deleteLikeCard(cardId)
-                  .then(() => cardNew._handleRemoveLike())
+                  .then((data) => cardNew._handleRemoveLike(data))
                 }
             },
           })

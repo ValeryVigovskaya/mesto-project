@@ -110,14 +110,9 @@ export default class Card {
     this._likeAmout = this._element.querySelector('.element__amount-likes');
     this._likeAmout.textContent = this._like.length;
     this._likeButton = this._element.querySelector('.element__like');
-
-    this._imageButton = this._element.querySelector('.element__image');
-
-
-
+    this._imageButton = this._element.querySelector('.element__image')
     this._setDeleteBtnState()
-    this._handleAddLike();
-    this._handleRemoveLike();
+
     this._setEventListeners();
     return this._element;
 
@@ -129,14 +124,16 @@ export default class Card {
     }
   }
 
-    _handleAddLike() {
+  _handleAddLike(data) {
+    this._likes = data.likes;
     this._likeButton.classList.toggle('element__like_active');
-    this._likeAmout.textContent = this._like.length;
+    this._likeAmout.textContent = this._likes.length;
   }
 
-  _handleRemoveLike() {
+  _handleRemoveLike(data) {
+    this._likes = data.likes;
      this._likeButton.classList.remove('element__like_active');
-    this._likeAmout.textContent = this._like.length;
+    this._likeAmout.textContent = this._likes.length;
   }
 
   // _countLikes() {
