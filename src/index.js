@@ -74,11 +74,14 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
             handleCardClick: () => {
               popupImage.openPopup(data);
             },
-            handleLikeClick: () => {
+            handleLikeClick: (cardId) => {
               if (!event.target.classList.contains('element__like_active')) {
-                cardNew._handleAddLike();
+                api.putLikeCard(cardId)
+                  .then (() => cardNew._handleAddLike())
               } else {
-                cardNew._handleRemoveLike();}
+                api.deleteLikeCard(cardId)
+                  .then(() => cardNew._handleRemoveLike())
+                }
             },
           })
           const cardElement = cardNew.generate();
