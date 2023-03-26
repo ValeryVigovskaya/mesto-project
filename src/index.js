@@ -39,7 +39,7 @@ import {
   elementsList, textInput,
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
-  /*popupEditAvatar, popupEditAvatarButton, avatarInput,*/ avatar, popupAvatarSubmitButton,
+  popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
   /*formAvatartEdit*/ userSelf, sectionSelector, formEditProfile
 } from './components/variables.js'
 import { data } from 'autoprefixer';
@@ -154,10 +154,10 @@ const submitAddCardForm = new PopupWithForm (popupAdd, {
 const submitAvatarForm = new PopupWithForm (popupEditAvatar, {
   submitCallBackForm: () => {
     submitAvatarForm.renderLoading(true);
-    api.patchAvatarEdit(data)
+    api.patchAvatarEdit(avatarInput.value)
     .then(() => {
       submitAvatarForm.closePopup(popupEditAvatar);
-      userInfo.setUserAvatar(avatarInput.value)})
+      userInfo.setUserAvatar(avatar)})
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
       })
@@ -170,9 +170,9 @@ const submitAvatarForm = new PopupWithForm (popupEditAvatar, {
 
   submitAvatarForm.setEventListeners()
 
-  popupEditAvatarButton.addEventListener('click', () => {
-     const avatar =  userInfo.getUserInfo()
-      avatar.value = avatar.src;
+  popupEditAvatarButton.addEventListener('click', function () {
+     userInfo.getUserInfo()
+     avatarInput.value = avatar;
       submitAvatarForm.openPopup(popupEditAvatar);
     })
 
