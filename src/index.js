@@ -79,22 +79,6 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   const popupImage = new PopupWithImage(popupImg)
   popupImage.setEventListeners();
 
-  const submitEditProfileForm = new PopupWithForm(popupEdit, {submitCallBackForm: (data) => {
-    submitEditProfileForm.renderLoading(true);
-     api.patchEditProfile(data)
-      .then(() => {
-        userInfo.setUserInfo(textInput.value, jobInput.value)
-        submitEditProfileForm.closePopup(popupEdit);
-      })
-      .catch((err) => {
-        console.error(`Ошибка: ${err}`);
-      })
-      .finally(() => {
-        submitEditProfileForm.renderLoading(false);
-      });
-    }
-  });
-
 function createSection(cards) {
   const sectionNew = new Section(
     {items: cards,
@@ -128,19 +112,49 @@ function createCard (data) {
   return cardElement;
   }
 
+  const submitEditProfileForm = new PopupWithForm(popupEdit, {submitCallBackForm: (data) => {
+    submitEditProfileForm.renderLoading(true);
+     api.patchEditProfile(data)
+      .then(() => {
+        userInfo.setUserInfo(textInput.value, jobInput.value)
+        submitEditProfileForm.closePopup(popupEdit);
+      })
+      .catch((err) => {
+        console.error(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        submitEditProfileForm.renderLoading(false);
+      });
+    }
+  });
 
 
 const submitAddCardForm = new PopupWithForm (popupAdd, {
-  submitCallBackForm: (data) => {
+  submitCallBackForm: () => {
     submitAddCardForm.renderLoading(true);
-    api.postNewCard(data)
-    .then(() => {
-      const newCardAdd = createCard(nameInput.value, linkInput.value)
-      createSection(newCardAdd);
+    api.postNewCard(nameInput.value, linkInput.value)
+    .then((data) => {
       submitAddCardForm.closePopup(popupAdd);
+      const newCardAdd = createCard(data, userInfo.userId);
+      return newCardAdd;
     })
+    .catch((err) => {
+      console.error(`Ошибка: ${err}`);
+    })
+    .finally(() => {
+      submitAddCardForm.renderLoading(false);
+    });
   }
 })
+
+popupAddOpenButton.addEventListener('click', function () {
+  nameInput.value = '';
+  linkInput.value = '';
+  submitAddCardForm.openPopup(popupAdd);
+  //disableSubmitButton(settings, popupAddSubmitButton);
+});
+
+submitAddCardForm.setEventListeners()
 
 //console.log(cardNew);
 
@@ -164,11 +178,11 @@ popupEditOpenButton.addEventListener('click', function () {
 //Включаем валидацию форм
 
 const profileFormValidator = new FormValidator(settings, formEditProfile);
-// const cardFormValidator = new FormValidator(settings, formElementAdd);
+const cardFormValidator = new FormValidator(settings, formElementAdd);
 // const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
 
 profileFormValidator.enableValidation(settings);
-// cardFormValidator.enableValidation();
+cardFormValidator.enableValidation(settings);
 // avatarFormValidator.enableValidation();
 
 
