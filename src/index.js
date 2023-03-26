@@ -62,35 +62,14 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
     userInfo.saveInfo(user);
     userInfo.setUserInfo(user.name, user.about, user._id);
     userInfo.setUserAvatar(user.avatar);
-    const sectionNew = new Section(
-      {
-        items: cards,
-        renderer: (data) => {
-          const cardNew = new Card(data, userInfo.userId, elementTemplate, {
-            handleCardDelete: (cardElement, cardId) => {
-              api.deleteCard(cardId)
-                .then(() => cardElement.remove())
-            },
-            handleCardClick: () => {
-              popupImage.openPopup(data);
-            },
-            handleLikeClick: (cardId) => {
-              if (!cardNew._checkActiveClass()) {
-                api.putLikeCard(cardId)
-                  .then ((data) => cardNew._handleAddLike(data))
-              } else {
-                api.deleteLikeCard(cardId)
-                  .then((data) => cardNew._handleRemoveLike(data))
-                }
-            },
-          })
-          const cardElement = cardNew.generate();
-          return cardElement;
-        },
-      },
-      sectionSelector
-    )
-    sectionNew.renderItems(cards)
+    createSection(cards);
+
+    // const sectionNew = new Section(
+    //   {items: cards,
+    //   renderer: createCard},
+    //   sectionSelector
+    // )
+    // sectionNew.renderItems(cards)
 
   })
   .catch((err) => {
@@ -116,7 +95,64 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
     }
   });
 
-  submitEditProfileForm.setEventListeners()
+function createSection(cards) {
+  const sectionNew = new Section(
+    {items: cards,
+    renderer: createCard},
+    sectionSelector
+  )
+  sectionNew.renderItems(cards)
+}
+
+
+function createCard (data) {
+    const cardNew = new Card(data, userInfo.userId, elementTemplate, {
+      handleCardDelete: (cardElement, cardId) => {
+        api.deleteCard(cardId)
+          .then(() => cardElement.remove())
+      },
+      handleCardClick: () => {
+        popupImage.openPopup(data);
+      },
+      handleLikeClick: (cardId) => {
+        if (!cardNew._checkActiveClass()) {
+          api.putLikeCard(cardId)
+            .then ((data) => cardNew._handleAddLike(data))
+        } else {
+          api.deleteLikeCard(cardId)
+            .then((data) => cardNew._handleRemoveLike(data))
+          }
+      },
+    });
+    const cardElement = cardNew.generate();
+  return cardElement;
+  }
+
+
+
+const submitAddCardForm = new PopupWithForm (popupAdd, {
+  submitCallBackForm: (data) => {
+    submitAddCardForm.renderLoading(true);
+    api.postNewCard(data)
+    .then(() => {
+      const newCardAdd = createCard(nameInput.value, linkInput.value)
+      createSection(newCardAdd);
+      submitAddCardForm.closePopup(popupAdd);
+    })
+  }
+})
+
+//console.log(cardNew);
+
+// console.log(sectionNew);
+
+//function createCard (data) {
+  //  const cardNew = new Card(data, elementTemplate);
+  //  const cardElement = cardNew.generate();
+//return cardElement;
+  //}
+
+submitEditProfileForm.setEventListeners()
 
 popupEditOpenButton.addEventListener('click', function () {
       const data = userInfo.getUserInfo();
