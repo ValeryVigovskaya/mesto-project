@@ -135,8 +135,10 @@ const submitAddCardForm = new PopupWithForm (popupAdd, {
     api.postNewCard(nameInput.value, linkInput.value)
     .then((data) => {
       submitAddCardForm.closePopup(popupAdd);
-      const newCardAdd = createCard(data, userInfo.userId);
-      return newCardAdd;
+      const newCardAdd = createCard(data);
+      elementsList.prepend(newCardAdd);
+      //return newCardAdd;
+
     })
     .catch((err) => {
       console.error(`Ошибка: ${err}`);
