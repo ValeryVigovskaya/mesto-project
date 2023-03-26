@@ -40,7 +40,7 @@ import {
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
   popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
-  /*formAvatartEdit*/ userSelf, sectionSelector, formEditProfile
+  formAvatartEdit, userSelf, sectionSelector, formEditProfile
 } from './components/variables.js'
 import { data } from 'autoprefixer';
 
@@ -156,8 +156,9 @@ const submitAvatarForm = new PopupWithForm (popupEditAvatar, {
     submitAvatarForm.renderLoading(true);
     api.patchAvatarEdit(avatarInput.value)
     .then(() => {
-      submitAvatarForm.closePopup(popupEditAvatar);
-      userInfo.setUserAvatar(avatar)})
+      userInfo.setUserAvatar(avatarInput.value)
+      submitAvatarForm.closePopup(popupEditAvatar)
+    })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
       })
@@ -171,9 +172,9 @@ const submitAvatarForm = new PopupWithForm (popupEditAvatar, {
   submitAvatarForm.setEventListeners()
 
   popupEditAvatarButton.addEventListener('click', function () {
-     userInfo.getUserInfo()
-     avatarInput.value = avatar;
-      submitAvatarForm.openPopup(popupEditAvatar);
+     const data = userInfo.getUserInfo()
+     avatarInput.value = data.avatar;
+     submitAvatarForm.openPopup(popupEditAvatar);
     })
 
 
@@ -200,11 +201,11 @@ popupEditOpenButton.addEventListener('click', function () {
 
 const profileFormValidator = new FormValidator(settings, formEditProfile);
 const cardFormValidator = new FormValidator(settings, formElementAdd);
-// const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
+const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
 
 profileFormValidator.enableValidation(settings);
 cardFormValidator.enableValidation(settings);
-// avatarFormValidator.enableValidation();
+avatarFormValidator.enableValidation(settings);
 
 
   //function createCard (data) {

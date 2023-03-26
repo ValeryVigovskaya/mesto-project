@@ -43,7 +43,8 @@ export default class UserInfo {
 
     this.userInfo = {
       name: this._name,
-      about: this._about
+      about: this._about,
+      avatar:this._avatar,
     };
     return this.userInfo
   }
