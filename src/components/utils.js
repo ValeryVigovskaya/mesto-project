@@ -8,28 +8,28 @@
 //import { patchEditProfile, postNewCard, patchAvatarEdit } from './api.js'
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-export const submitEditProfileForm = (evt) => {
-  function makeRequest() {
-    return patchEditProfile(textInput.value, jobInput.value)
-      .then((res) => {
-        username.textContent = res.name;
-        description.textContent = res.about;
-        closePopup(popupEdit);
-      })
-  }
-  handleSubmit(makeRequest, evt);
-}
+//export const submitEditProfileForm = (evt) => {
+ // function makeRequest() {
+   // return patchEditProfile(textInput.value, jobInput.value)
+    //  .then((res) => {
+     //   username.textContent = res.name;
+     //   description.textContent = res.about;
+     //   closePopup(popupEdit);
+     // })
+  //}
+ // handleSubmit(makeRequest, evt);
+//}
 // Обработчик «отправки» формы карточки
-export const submitCardForm = (evt) => {
-  function makeRequest() {
-    return postNewCard(nameInput.value, linkInput.value)
-      .then((card) => {
-        closePopup(popupAdd);
-        elementsList.prepend(createElement(card, userSelf));
-      })
-  }
-  handleSubmit(makeRequest, evt);
-}
+//export const submitCardForm = (evt) => {
+  //function makeRequest() {
+    //return postNewCard(nameInput.value, linkInput.value)
+     // .then((card) => {
+        //closePopup(popupAdd);
+       // elementsList.prepend(createElement(card, userSelf));
+      //})
+  //}
+  //handleSubmit(makeRequest, evt);
+//}
 
 //функция редактирования аватарки
 export const editAvatarForm = (evt) => {
@@ -90,3 +90,4 @@ function request(url, options) {
 }
 
 export { request} //handleSubmit, disableSubmitButton }
+//

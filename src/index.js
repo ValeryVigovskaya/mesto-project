@@ -39,8 +39,8 @@ import {
   elementsList, textInput,
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
-  popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
-  formAvatartEdit, userSelf, sectionSelector, formEditProfile
+  /*popupEditAvatar, popupEditAvatarButton, avatarInput,*/ avatar, popupAvatarSubmitButton,
+  /*formAvatartEdit*/ userSelf, sectionSelector, formEditProfile
 } from './components/variables.js'
 import { data } from 'autoprefixer';
 
@@ -132,8 +132,10 @@ function createCard (data) {
 const submitAddCardForm = new PopupWithForm (popupAdd, {
   submitCallBackForm: () => {
     submitAddCardForm.renderLoading(true);
+
     api.postNewCard(nameInput.value, linkInput.value)
     .then((data) => {
+
       submitAddCardForm.closePopup(popupAdd);
       const newCardAdd = createCard(data);
       elementsList.prepend(newCardAdd);
@@ -149,6 +151,33 @@ const submitAddCardForm = new PopupWithForm (popupAdd, {
   }
 })
 
+const submitAvatarForm = new PopupWithForm (popupEditAvatar, {
+  submitCallBackForm: () => {
+    submitAvatarForm.renderLoading(true);
+    api.patchAvatarEdit(data)
+    .then(() => {
+      submitAvatarForm.closePopup(popupEditAvatar);
+      userInfo.setUserAvatar(avatarInput.value)})
+      .catch((err) => {
+        console.error(`Ошибка: ${err}`);
+      })
+      .finally(() => {
+        submitAvatarForm.renderLoading(false);
+      });
+    }
+  })
+
+
+  submitAvatarForm.setEventListeners()
+
+  popupEditAvatarButton.addEventListener('click', () => {
+     const avatar =  userInfo.getUserInfo()
+      avatar.value = avatar.src;
+      submitAvatarForm.openPopup(popupEditAvatar);
+    })
+
+
+
 popupAddOpenButton.addEventListener('click', function () {
   nameInput.value = '';
   linkInput.value = '';
@@ -157,16 +186,6 @@ popupAddOpenButton.addEventListener('click', function () {
 });
 
 submitAddCardForm.setEventListeners()
-
-//console.log(cardNew);
-
-// console.log(sectionNew);
-
-//function createCard (data) {
-  //  const cardNew = new Card(data, elementTemplate);
-  //  const cardElement = cardNew.generate();
-//return cardElement;
-  //}
 
 submitEditProfileForm.setEventListeners()
 

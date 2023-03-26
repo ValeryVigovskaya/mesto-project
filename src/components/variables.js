@@ -4,12 +4,12 @@ const popupEditOpenButton = document.querySelector('.profile__edit-button');
 const popupAddOpenButton = document.querySelector('.profile__add-button');
 
 const elementsList = document.querySelector('.elements__list'); //добавили переменную,  в которую добавляется шаблон
-const popupEditAvatar = document.querySelector('#popup__avatar');
-const popupAvatarSubmitButton = popupEditAvatar.querySelector('.popup__button');
+const popupEditAvatar = ('#popup__avatar');
+// const popupAvatarSubmitButton = popupEditAvatar.querySelector('.popup__button');
 const popupEditAvatarButton = document.querySelector('.profile__avatar-hover');
-const avatarInput = popupEditAvatar.querySelector('#avatar');
+const avatarInput = document.querySelector('#avatar');
 const avatar = ('.profile__avatar');
-const formAvatartEdit = popupEditAvatar.querySelector('.popup__form');
+
 //реализация сохранения редактирования профиля
 const textInput = document.querySelector('#name');
 const jobInput = document.querySelector('#description');
@@ -24,8 +24,9 @@ const userSelf = document.querySelector('.profile');
 const popupEditSaveButton = ('.popup__button');
 const popupAdd = ('#popup__add');
 const popupAddSubmitButton = ('.popup__button');
-const formEditProfile = document.querySelector('.popup__form');
-const formElementAdd = document.querySelector('.popup__form');
+const formEditProfile = document.querySelector('#editForm');
+const formElementAdd = document.querySelector('#addForm');
+const formAvatartEdit = document.querySelector('#avatarForm');
 const sectionSelector = ('.elements__list');
 const popupEdit = ('#popup__edit');
 const popupImg = ('#popup_with_img');
@@ -47,6 +48,6 @@ export {
   elementsList, textInput,
   jobInput, username, description, imgInsert, nameInsert,
   formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
-  popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
+  popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, //popupAvatarSubmitButton,
   formAvatartEdit, userSelf, sectionSelector, formEditProfile
 }
