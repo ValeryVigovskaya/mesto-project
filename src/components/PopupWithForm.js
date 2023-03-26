@@ -1,15 +1,16 @@
 import Popup from '../components/Popup.js'
+
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, {submitCallBackForm}) {
+  constructor(popupSelector, {
+    submitCallBackForm
+  }) {
     super(popupSelector)
     this._submitCallBackForm = submitCallBackForm;
     this._popupElement = this._popupItem.querySelector('.popup__form')
     this._submitButton = this._popupElement.querySelector('.popup__button');
-
     this.formsInputs = this._popupElement.querySelectorAll('.popup__item');
   }
 
-  //методом перебора получили инпуты и передали в значение
   _getInputValues() {
     this._inputValues = {}
     this.formsInputs.forEach((input) => {
@@ -20,11 +21,10 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._popupElement.addEventListener('submit', (evt) =>{
+    this._popupElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._submitCallBackForm(this._getInputValues());
     })
-
   }
 
   closePopup() {

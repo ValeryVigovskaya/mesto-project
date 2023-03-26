@@ -1,4 +1,5 @@
 import Popup from '../components/Popup.js'
+
 export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector)
@@ -13,9 +14,3 @@ export default class PopupWithImage extends Popup {
     this._description.textContent = data.name;
   };
 }
-
-
-
-
-
-

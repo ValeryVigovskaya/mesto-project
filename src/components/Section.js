@@ -1,10 +1,10 @@
-/* Отвечает за отрисовку элементов на странице */
-
 export default class Section {
-  constructor({ items, renderer }, selector) {
+  constructor({
+    items,
+    renderer
+  }, selector) {
     this._renderedItems = items;
     this._renderer = renderer;
-
     this._container = document.querySelector(selector);
   }
 
@@ -13,7 +13,7 @@ export default class Section {
   }
 
   clear() {
-   this._container.innerHTML = '';
+    this._container.innerHTML = '';
   }
 
   renderItems() {
@@ -25,6 +25,3 @@ export default class Section {
     });
   }
 }
-
-
-
