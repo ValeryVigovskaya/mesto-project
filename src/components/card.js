@@ -46,6 +46,10 @@ export default class Card {
     });
   }
 
+  _deleteCard(){
+    this._element.remove();
+  }
+
   _setDeleteBtnState() {
     if (this.id !== this._id) {
       this._deleteButton.classList.add('element__delete_inactive');
@@ -70,7 +74,7 @@ export default class Card {
 
   _setEventListeners() {
     this._likeButton.addEventListener('click', () => this._handleLikeClick(this._cardId, this.id));
-    this._deleteButton.addEventListener('click', () => this._handleCardDelete(this._element, this._cardId));
+    this._deleteButton.addEventListener('click', () => this._handleCardDelete(this._cardId));
     this._imageButton.addEventListener('click', () => this._handleCardClick(this._link, this._name));
   }
 }

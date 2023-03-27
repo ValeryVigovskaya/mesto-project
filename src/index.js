@@ -55,9 +55,9 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
 
 function createCard(data) {
   const cardNew = new Card(data, userInfo.userId, elementTemplate, {
-    handleCardDelete: (cardElement, cardId) => {
+    handleCardDelete: (cardId) => {
       api.deleteCard(cardId)
-        .then(() => cardElement.remove())
+        .then(() => cardNew._deleteCard())
     },
     handleCardClick: () => {
       popupImage.openPopup(data);
