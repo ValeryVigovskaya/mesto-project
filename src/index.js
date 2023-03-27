@@ -52,14 +52,14 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
     userInfo.setUserAvatar(user.avatar);
     sectionNew = new Section({
             items: cards,
-            renderer: createCard
+            renderer: (data) => {
+              const newCardAdd = createCard(data);
+              sectionNew.addItem(newCardAdd);
+            }
           },
           sectionSelector
         )
-        const newCardAdd = createCard(data);
-        sectionNew.addItem(newCardAdd)
-        sectionNew.renderItems(cards)
-
+        sectionNew.renderItems()
   })
   .catch((err) => {
     console.error(`Ошибка: ${err}`);
