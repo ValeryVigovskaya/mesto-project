@@ -98,31 +98,31 @@ function createSection(cards) {
 const popupImage = new PopupWithImage(popupImg)
 popupImage.setEventListeners();
 
-const submitEditProfileForm = new PopupWithForm(popupEdit, {
+const profileForm = new PopupWithForm(popupEdit, {
   submitCallBackForm: (data) => {
-    submitEditProfileForm.renderLoading(true);
+    profileForm.renderLoading(true);
     api.patchEditProfile(data)
       .then((data) => {
         userInfo.setUserInfo(data.name, data.about)
-        submitEditProfileForm.closePopup(popupEdit);
+        profileForm.closePopup(popupEdit);
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
       })
       .finally(() => {
-        submitEditProfileForm.renderLoading(false);
+        profileForm.renderLoading(false);
       });
   }
 });
-submitEditProfileForm.setEventListeners()
+profileForm.setEventListeners()
 
-const submitAddCardForm = new PopupWithForm(popupAdd, {
+const сardForm = new PopupWithForm(popupAdd, {
   submitCallBackForm: () => {
-    submitAddCardForm.renderLoading(true);
+    сardForm.renderLoading(true);
 
     api.postNewCard(nameInput.value, linkInput.value)
       .then((data) => {
-        submitAddCardForm.closePopup(popupAdd);
+        сardForm.closePopup(popupAdd);
         const newCardAdd = createCard(data);
         elementsList.prepend(newCardAdd);
       })
@@ -130,47 +130,47 @@ const submitAddCardForm = new PopupWithForm(popupAdd, {
         console.error(`Ошибка: ${err}`);
       })
       .finally(() => {
-        submitAddCardForm.renderLoading(false);
+        сardForm.renderLoading(false);
       });
   }
 });
-submitAddCardForm.setEventListeners()
+сardForm.setEventListeners()
 
-const submitAvatarForm = new PopupWithForm(popupEditAvatar, {
+const avatarForm = new PopupWithForm(popupEditAvatar, {
   submitCallBackForm: () => {
-    submitAvatarForm.renderLoading(true);
+    avatarForm.renderLoading(true);
     api.patchAvatarEdit(avatarInput.value)
       .then(() => {
         userInfo.setUserAvatar(avatarInput.value)
-        submitAvatarForm.closePopup(popupEditAvatar)
+        avatarForm.closePopup(popupEditAvatar)
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
       })
       .finally(() => {
-        submitAvatarForm.renderLoading(false);
+        avatarForm.renderLoading(false);
       });
   }
 })
-submitAvatarForm.setEventListeners()
+avatarForm.setEventListeners()
 
 popupEditAvatarButton.addEventListener('click', function () {
   const data = userInfo.getUserInfo()
   avatarInput.value = data.avatar;
-  submitAvatarForm.openPopup(popupEditAvatar);
+  avatarForm.openPopup(popupEditAvatar);
 })
 
 popupAddOpenButton.addEventListener('click', function () {
   nameInput.value = '';
   linkInput.value = '';
-  submitAddCardForm.openPopup(popupAdd);
+  сardForm.openPopup(popupAdd);
 });
 
 popupEditOpenButton.addEventListener('click', function () {
   const data = userInfo.getUserInfo();
   textInput.value = data.name;
   jobInput.value = data.about;
-  submitEditProfileForm.openPopup(popupEdit);
+  profileForm.openPopup(popupEdit);
 })
 
 //Включаем валидацию форм
