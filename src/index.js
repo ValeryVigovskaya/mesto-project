@@ -33,6 +33,7 @@ import {
 } from './components/variables.js'
 
 const userInfo = new UserInfo(username, description, avatar);
+let sectionNew;
 
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-20',
@@ -42,12 +43,23 @@ const api = new Api({
   }
 });
 
+
+
 Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
   .then(([user, cards]) => {
     userInfo.saveInfo(user);
     userInfo.setUserInfo(user.name, user.about, user._id);
     userInfo.setUserAvatar(user.avatar);
-    createSection(cards);
+    sectionNew = new Section({
+            items: cards,
+            renderer: createCard
+          },
+          sectionSelector
+        )
+        const newCardAdd = createCard(data);
+        sectionNew.addItem(newCardAdd)
+        sectionNew.renderItems(cards)
+
   })
   .catch((err) => {
     console.error(`Ошибка: ${err}`);
@@ -85,15 +97,15 @@ function createCard(data) {
   return cardElement;
 }
 
-function createSection(cards) {
-  const sectionNew = new Section({
-      items: cards,
-      renderer: createCard
-    },
-    sectionSelector
-  )
-  sectionNew.renderItems(cards)
-}
+// function createSection(cards) {
+//   const sectionNew = new Section({
+//       items: cards,
+//       renderer: createCard
+//     },
+//     sectionSelector
+//   )
+//   sectionNew.renderItems(cards)
+// }
 
 const popupImage = new PopupWithImage(popupImg)
 popupImage.setEventListeners();
@@ -123,8 +135,10 @@ const сardForm = new PopupWithForm(popupAdd, {
     api.postNewCard(data)
       .then((data) => {
         сardForm.closePopup(popupAdd);
-        const newCardAdd = createCard(data);
-        elementsList.prepend(newCardAdd);
+         const newCardAdd = createCard(data);
+         sectionNew.addItem(newCardAdd)
+
+        //sectionNew.addItem(data);
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
