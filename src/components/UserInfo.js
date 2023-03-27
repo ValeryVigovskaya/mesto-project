@@ -1,11 +1,3 @@
-import {
-  api
-} from "./api.js"
-import {
-  username,
-  avatar,
-  description
-} from './variables.js'
 
 export default class UserInfo {
   constructor(username, description, avatar) {

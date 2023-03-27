@@ -1,6 +1,3 @@
-import {
-  popups
-} from './variables.js'
 
 export default class Popup {
   constructor(popupSelector) {
@@ -18,15 +15,13 @@ export default class Popup {
     document.removeEventListener('keydown', this._handleEscClose);
   }
 
-  _handleEscClose(evt) {
+  _handleEscClose = (evt) => {
     if (evt.key === 'Escape') {
-      const openedPopup = document.querySelector('.popup_opened')
-      this.closePopup(openedPopup)
+      this.closePopup()
     }
   }
 
   setEventListeners() {
-    popups.forEach(() => {
       this._popupItem.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened')) {
           this.closePopup(this._popupItem)
@@ -35,6 +30,5 @@ export default class Popup {
           this.closePopup(this._popupItem)
         }
       })
-    })
-  }
+    }
 }
