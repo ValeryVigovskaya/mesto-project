@@ -117,10 +117,10 @@ const profileForm = new PopupWithForm(popupEdit, {
 profileForm.setEventListeners()
 
 const сardForm = new PopupWithForm(popupAdd, {
-  submitCallBackForm: () => {
+  submitCallBackForm: (data) => {
     сardForm.renderLoading(true);
 
-    api.postNewCard(nameInput.value, linkInput.value)
+    api.postNewCard(data)
       .then((data) => {
         сardForm.closePopup(popupAdd);
         const newCardAdd = createCard(data);
@@ -182,5 +182,4 @@ const avatarFormValidator = new FormValidator(settings, formAvatartEdit);
 profileFormValidator.enableValidation(settings);
 cardFormValidator.enableValidation(settings);
 avatarFormValidator.enableValidation(settings);
-
 

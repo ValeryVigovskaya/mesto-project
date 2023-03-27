@@ -31,13 +31,13 @@ export default class Api {
     })
   }
 
-  postNewCard(name, link) {
+  postNewCard(data) {
     return request(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link,
+        name: data.name,
+        link: data.link,
       })
     })
   }
