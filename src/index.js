@@ -50,14 +50,17 @@ Promise.all([api._getUserInfo(), api.getInitialCards(), api.deleteCard])
     createSection(cards);
   })
   .catch((err) => {
-    console.log(err);
-  });
+    console.error(`Ошибка: ${err}`);
+  })
 
 function createCard(data) {
   const cardNew = new Card(data, userInfo.userId, elementTemplate, {
     handleCardDelete: (cardId) => {
       api.deleteCard(cardId)
         .then(() => cardNew._deleteCard())
+        .catch((err) => {
+          console.error(`Ошибка: ${err}`);
+        })
     },
     handleCardClick: () => {
       popupImage.openPopup(data);
@@ -66,9 +69,15 @@ function createCard(data) {
       if (!cardNew._checkActiveClass()) {
         api.putLikeCard(cardId)
           .then((data) => cardNew._handleAddLike(data))
+          .catch((err) => {
+            console.error(`Ошибка: ${err}`);
+          })
       } else {
         api.deleteLikeCard(cardId)
           .then((data) => cardNew._handleRemoveLike(data))
+          .catch((err) => {
+            console.error(`Ошибка: ${err}`);
+          })
       }
     },
   });
@@ -93,8 +102,8 @@ const submitEditProfileForm = new PopupWithForm(popupEdit, {
   submitCallBackForm: (data) => {
     submitEditProfileForm.renderLoading(true);
     api.patchEditProfile(data)
-      .then(() => {
-        userInfo.setUserInfo(textInput.value, jobInput.value)
+      .then((data) => {
+        userInfo.setUserInfo(data.name, data.about)
         submitEditProfileForm.closePopup(popupEdit);
       })
       .catch((err) => {
@@ -113,7 +122,6 @@ const submitAddCardForm = new PopupWithForm(popupAdd, {
 
     api.postNewCard(nameInput.value, linkInput.value)
       .then((data) => {
-
         submitAddCardForm.closePopup(popupAdd);
         const newCardAdd = createCard(data);
         elementsList.prepend(newCardAdd);
