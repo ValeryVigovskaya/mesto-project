@@ -55,12 +55,12 @@ export default class Api {
     })
   }
 
-  patchAvatarEdit(avatar) {
+  patchAvatarEdit(data) {
     return request(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: avatar,
+        avatar: data.avatar,
       })
     })
   }

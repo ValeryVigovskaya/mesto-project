@@ -137,11 +137,11 @@ const сardForm = new PopupWithForm(popupAdd, {
 сardForm.setEventListeners()
 
 const avatarForm = new PopupWithForm(popupEditAvatar, {
-  submitCallBackForm: () => {
+  submitCallBackForm: (data) => {
     avatarForm.renderLoading(true);
-    api.patchAvatarEdit(avatarInput.value)
+    api.patchAvatarEdit(data)
       .then(() => {
-        userInfo.setUserAvatar(avatarInput.value)
+        userInfo.setUserAvatar(data.avatar)
         avatarForm.closePopup(popupEditAvatar)
       })
       .catch((err) => {
