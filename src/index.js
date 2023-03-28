@@ -29,7 +29,8 @@ import {
   avatar,
   formAvatartEdit,
   sectionSelector,
-  formEditProfile
+  formEditProfile,
+  popupAddSubmitButton
 } from './components/variables.js'
 
 const userInfo = new UserInfo(username, description, avatar);
@@ -97,16 +98,6 @@ function createCard(data) {
   return cardElement;
 }
 
-// function createSection(cards) {
-//   const sectionNew = new Section({
-//       items: cards,
-//       renderer: createCard
-//     },
-//     sectionSelector
-//   )
-//   sectionNew.renderItems(cards)
-// }
-
 const popupImage = new PopupWithImage(popupImg)
 popupImage.setEventListeners();
 
@@ -137,8 +128,6 @@ const сardForm = new PopupWithForm(popupAdd, {
         сardForm.closePopup(popupAdd);
          const newCardAdd = createCard(data);
          sectionNew.addItem(newCardAdd)
-
-        //sectionNew.addItem(data);
       })
       .catch((err) => {
         console.error(`Ошибка: ${err}`);
@@ -177,7 +166,9 @@ popupEditAvatarButton.addEventListener('click', function () {
 popupAddOpenButton.addEventListener('click', function () {
   nameInput.value = '';
   linkInput.value = '';
+  cardFormValidator._toggleButtonState();
   сardForm.openPopup(popupAdd);
+
 });
 
 popupEditOpenButton.addEventListener('click', function () {
