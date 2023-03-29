@@ -166,9 +166,8 @@ popupEditAvatarButton.addEventListener('click', function () {
 popupAddOpenButton.addEventListener('click', function () {
   nameInput.value = '';
   linkInput.value = '';
-  cardFormValidator._toggleButtonState();
+  cardFormValidator.disableSubmitButton();
   сardForm.openPopup(popupAdd);
-
 });
 
 popupEditOpenButton.addEventListener('click', function () {
