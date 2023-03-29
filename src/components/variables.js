@@ -1,33 +1,31 @@
-//добавили отдельный файл со всеми константами
+
 const popups = document.querySelectorAll('.popup');
 const popupEditOpenButton = document.querySelector('.profile__edit-button');
-const popupEdit = document.querySelector('#popup__edit');
-const popupEditSaveButton = popupEdit.querySelector('.popup__button');
 const popupAddOpenButton = document.querySelector('.profile__add-button');
-const popupAdd = document.querySelector('#popup__add');
-const popupAddSubmitButton = popupAdd.querySelector('.popup__button');
-const popupImg = document.querySelector('#popup_with_img');
-const elementsList = document.querySelector('.elements__list'); //добавили переменную,  в которую добавляется шаблон
-const popupEditAvatar = document.querySelector('#popup__avatar');
-const popupAvatarSubmitButton = popupEditAvatar.querySelector('.popup__button');
+const elementsList = document.querySelector('.elements__list');
 const popupEditAvatarButton = document.querySelector('.profile__avatar-hover');
-const avatarInput = popupEditAvatar.querySelector('#avatar');
-const avatar = document.querySelector('.profile__avatar');
-const formAvatartEdit = popupEditAvatar.querySelector('.popup__form');
-//реализация сохранения редактирования профиля
-const formEditProfile = popupEdit.querySelector('.popup__form');
-const textInput = popupEdit.querySelector('#name');
-const jobInput = popupEdit.querySelector('#description');
-const username = document.querySelector('.profile__username');
-const description = document.querySelector('.profile__description');
+const avatarInput = document.querySelector('#avatar');
+const textInput = document.querySelector('#name');
+const jobInput = document.querySelector('#description');
 const imgInsert = document.querySelector('.popup__image');
 const nameInsert = document.querySelector('.popup__caption');
-const formElementAdd = popupAdd.querySelector('.popup__form');
-const nameInput = popupAdd.querySelector('#title');
-const linkInput = popupAdd.querySelector('#link');
-const userSelf = document.querySelector('.profile');
+const nameInput = document.querySelector('#title');
+const linkInput = document.querySelector('#link');
+const formEditProfile = document.querySelector('#editForm');
+const formElementAdd = document.querySelector('#addForm');
+const formAvatartEdit = document.querySelector('#avatarForm');
 
-const elementTemplate = document.querySelector('#element-template').content; //шаблон элемента из html
+const avatar = ('.profile__avatar');
+const popupEditAvatar = ('#popup__avatar');
+const username = ('.profile__username');
+const description = ('.profile__description');
+const popupEditSaveButton = ('.popup__button');
+const popupAdd = ('#popup__add');
+const popupAddSubmitButton = ('.popup__button');
+const sectionSelector = ('.elements__list');
+const popupEdit = ('#popup__edit');
+const popupImg = ('#popup_with_img');
+const elementTemplate = ('#element-template');
 
 const settings = {
   formSelector: '.popup__form',
@@ -39,12 +37,31 @@ const settings = {
 }
 
 export {
-  settings, popups, popupEditOpenButton, popupEdit,
-  popupEditSaveButton, popupAddOpenButton, popupAdd,
+  settings,
+  popups,
+  popupEditOpenButton,
+  popupEdit,
+  popupEditSaveButton,
+  popupAddOpenButton,
+  popupAdd,
   popupImg,
-  elementsList, formEditProfile, textInput,
-  jobInput, username, description, imgInsert, nameInsert,
-  formElementAdd, nameInput, linkInput, elementTemplate, popupAddSubmitButton,
-  popupEditAvatar, popupEditAvatarButton, avatarInput, avatar, popupAvatarSubmitButton,
-  formAvatartEdit, userSelf
+  elementsList,
+  textInput,
+  jobInput,
+  username,
+  description,
+  imgInsert,
+  nameInsert,
+  formElementAdd,
+  nameInput,
+  linkInput,
+  elementTemplate,
+  popupAddSubmitButton,
+  popupEditAvatar,
+  popupEditAvatarButton,
+  avatarInput,
+  avatar,
+  formAvatartEdit,
+  sectionSelector,
+  formEditProfile
 }
