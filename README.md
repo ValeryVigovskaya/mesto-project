@@ -9,7 +9,7 @@
   <li>Подвал</li>
 </ul>
 
-# С сайтом можете ознакомиться по ссылке https://valeryvigovskaya.github.io/mesto-project/
+<h3> С сайтом можете ознакомиться по ссылке https://valeryvigovskaya.github.io/mesto-project/ </h3>
 
 # Реализованный функционал:
 <ul>
@@ -35,12 +35,22 @@
 
 # Инструкция по запуску:
 Чтобы запустить проект понадобится несколько шагов:
-1. Зайти в место, где будет запускаться проект
+1. Зайти в место, где будет запускаться проект: 
    `cd <название папки>`
-3. 
-
-
-
+2. Создать папку:
+   `mkdir <название папки>`
+3. Войти в папку:
+   `cd <название папки>`
+4. Клонируем репозиторий:
+   `git clone https://github.com/ValeryVigovskaya/mesto-project.git`
+5. Заходим в появившуюся папку:
+   `cd mesto-project`
+6. Устанавливаем все зависимости:
+   `npm i или npm install`
+7. Собрать проект можно по команде:
+   `npm run build`
+9. Запустить проект на локальном хосте можно по команде:
+    `npm run dev`
 
  ---
   :hammer_and_wrench: Используется :
@@ -49,4 +59,5 @@
   <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML5" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" title="CSS" alt="CSS" width="40" height="40"/>&nbsp;
   <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>&nbsp;
+  <img src="https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black" />&nbsp;
 </div>
